@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Single logo reveal</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { position: absolute; inset: 0; }
+      .fill { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .inset { position: absolute; overflow: hidden; border: 1px solid var(--line); }
+
+      #scene { display: flex; align-items: center; justify-content: center; }
+      #mark { display: block; height: 150px; width: auto; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+
+      <div id="scene">
+        <img id="mark" src="assets/gemini_wordmark_white.png" alt="Gemini" />
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#mark", { opacity: 0, scale: 0.86, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: "back.out(1.6)" }, 0.25);
+      tl.fromTo("#mark", { scale: 1 }, { immediateRender: false, scale: 1.04, duration: 4.5, ease: "sine.inOut" }, 0.85);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

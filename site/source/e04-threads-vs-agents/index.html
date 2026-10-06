@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>E4 · Threads vs agents</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --bar: #4a4a47; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 96px; }
+      .col { display: flex; flex-direction: column; align-items: center; gap: 40px; width: 700px; }
+      .logo { height: 70px; display: flex; align-items: center; }
+      .panel { width: 600px; height: 520px; border-radius: 28px; background: var(--panel); border: 1px solid var(--line); }
+      .threads { padding: 48px; display: flex; flex-direction: column; gap: 24px; }
+      .row { height: 64px; border-radius: 16px; background: var(--ground); display: flex; align-items: center; padding: 0 24px; gap: 18px; }
+      .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--muted); }
+      .dot.live { background: var(--accent); }
+      .bar { display: block; height: 12px; border-radius: 6px; background: var(--bar); }
+      .agents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; padding: 64px 90px; justify-items: center; align-items: center; }
+      .avatar { width: 150px; height: 150px; border-radius: 50%; background: var(--ground); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; }
+      .label { font-size: 40px; font-weight: 500; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="scene">
+        <div class="col">
+          <div id="cc-logo" class="logo"><img src="assets/claude_code_wordmark.png" alt="Claude Code" style="display: block; height: 58px; width: auto" /></div>
+          <div id="threads-panel" class="panel threads">
+            <svg id="folder" width="90" height="72" viewBox="0 0 90 72" fill="none" aria-hidden="true"><path d="M5 14 a8 8 0 0 1 8 -8 H34 L44 18 H77 a8 8 0 0 1 8 8 V60 a8 8 0 0 1 -8 8 H13 a8 8 0 0 1 -8 -8 Z" stroke="#f4f3ef" stroke-width="6" stroke-linejoin="round"></path></svg>
+            <div class="row thread"><div id="live-dot" class="dot live"></div><div class="bar" style="width: 300px"></div></div>
+            <div class="row thread"><div class="dot"></div><div class="bar" style="width: 240px"></div></div>
+            <div class="row thread"><div class="dot"></div><div class="bar" style="width: 340px"></div></div>
+            <div class="row thread"><div class="dot"></div><div class="bar" style="width: 200px"></div></div>
+          </div>
+          <div id="threads-label" class="label">Threads</div>
+        </div>
+        <div class="col">
+          <div id="gb-logo" class="logo"><img src="assets/grokbot.png" alt="Grok Bot" style="display: block; height: 62px; width: auto" /></div>
+          <div id="agents-panel" class="panel agents">
+            <div class="avatar agent"><svg width="72" height="58" viewBox="0 0 64 52" fill="none" aria-hidden="true"><rect x="3" y="3" width="58" height="46" rx="14" stroke="#f4f3ef" stroke-width="5"></rect><circle cx="22" cy="26" r="5" fill="#f4f3ef"></circle><circle cx="42" cy="26" r="5" fill="#f4f3ef"></circle></svg></div>
+            <div class="avatar agent"><svg width="72" height="58" viewBox="0 0 64 52" fill="none" aria-hidden="true"><rect x="3" y="3" width="58" height="46" rx="14" stroke="#9c9b96" stroke-width="5"></rect><circle cx="22" cy="26" r="5" fill="#9c9b96"></circle><circle cx="42" cy="26" r="5" fill="#9c9b96"></circle></svg></div>
+            <div class="avatar agent"><svg width="72" height="58" viewBox="0 0 64 52" fill="none" aria-hidden="true"><rect x="3" y="3" width="58" height="46" rx="14" stroke="#9c9b96" stroke-width="5"></rect><circle cx="22" cy="26" r="5" fill="#9c9b96"></circle><circle cx="42" cy="26" r="5" fill="#9c9b96"></circle></svg></div>
+            <div class="avatar agent"><svg width="72" height="58" viewBox="0 0 64 52" fill="none" aria-hidden="true"><rect x="3" y="3" width="58" height="46" rx="14" stroke="#9c9b96" stroke-width="5"></rect><circle cx="22" cy="26" r="5" fill="#9c9b96"></circle><circle cx="42" cy="26" r="5" fill="#9c9b96"></circle></svg></div>
+          </div>
+          <div id="agents-label" class="label">Agents</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // left: a project is a folder of threads
+      tl.fromTo("#cc-logo", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.2);
+      tl.fromTo("#threads-panel", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.35);
+      tl.fromTo(".thread", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out", stagger: 0.12 }, 0.75);
+      tl.fromTo("#threads-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, 1.1);
+      tl.fromTo("#live-dot", { scale: 1 }, { scale: 1.6, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 5 }, 1.4);
+      // right: agents are personified as teammates
+      tl.fromTo("#gb-logo", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.7);
+      tl.fromTo("#agents-panel", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 1.85);
+      tl.fromTo(".agent", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)", stagger: 0.12 }, 2.25);
+      tl.fromTo("#agents-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, 2.6);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

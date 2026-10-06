@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Name label plain</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { position: absolute; inset: 0; }
+      .fill { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .inset { position: absolute; overflow: hidden; border: 1px solid var(--line); }
+
+      #shade { position: absolute; left: 0; bottom: 0; width: 1100px; height: 420px; background: radial-gradient(ellipse at 0% 100%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 70%); }
+      .name { font-size: 60px; font-weight: 600; letter-spacing: -0.02em; text-shadow: 0 2px 18px rgba(0,0,0,0.45); }
+      #label { position: absolute; left: 96px; bottom: 84px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+
+      <div id="scene">
+        <video id="aroll" class="clip fill" src="assets/riley_150.mp4" muted playsinline data-start="0" data-duration="6" data-track-index="0"></video>
+        <div id="shade"></div>
+        <div id="label" class="name">Riley Brown</div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#shade", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.4);
+      tl.fromTo("#label", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.55);
+      tl.to("#label", { opacity: 0, y: 8, duration: 0.3, ease: "power2.in" }, 4.6);
+      tl.to("#shade", { opacity: 0, duration: 0.3 }, 4.65);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

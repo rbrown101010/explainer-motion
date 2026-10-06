@@ -1,0 +1,871 @@
+{
+  "collection": "Riley Brown \u00b7 Explainer Motion",
+  "description": "Motion graphics for Riley Brown's videos: ten topic explainers plus fourteen B-roll templates (text cards, video inserts, logo cards, screens and name labels over A-roll), built with HyperFrames (HTML + GSAP) and rendered to 1920x1080 MP4. Every entry ships notes, a recreation prompt, keywords, tags and the full composition source.",
+  "style": "/style.md",
+  "explainers": [
+    {
+      "id": "e01",
+      "slug": "e01-agent-computer",
+      "title": "Chatbot \u2192 agent with a computer",
+      "topic": "ChatGPT was a chatbot. Now it has its own computer.",
+      "notes": "Explains the jump from a chat window to an agent that owns a computer and can use your apps. Use it when a video says a model now 'has its own computer' or 'works in your apps'. Beats: chatbot panel (0.2s) \u2192 arrow draws (1.35s) \u2192 computer draws on screen (1.95s) \u2192 Gmail, Slack, Calendar, Notion pop in (2.75s) \u2192 hold \u2192 fade out (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 motion graphic on a flat #212120 background in Geist. Left: a #2B2B29 rounded panel (500px, 28px radius, 1px hairline) with two grey outline chat bubbles that pop in, labelled 'Chatbot' in #9C9B96. A 4px coral (#F07A5A) arrow draws left to right. Right: a matching panel with a 2px light border; a white outline monitor draws itself on, a terminal prompt and blinking caret appear, then Gmail, Slack, Google Calendar and Notion logos pop in one by one. Label it 'Agent' in white. Hold, then fade everything out at 5.4s so it loops on an empty frame. No titles, captions or subtitles.",
+      "files": {
+        "video": "/media/e01-agent-computer.mp4",
+        "poster": "/media/e01-agent-computer.jpg",
+        "composition": "/source/e01-agent-computer/index.html",
+        "live": "/play.html?id=e01-agent-computer",
+        "assets": [
+          "/source/e01-agent-computer/assets/Geist-Variable.woff2",
+          "/source/e01-agent-computer/assets/gmail.png",
+          "/source/e01-agent-computer/assets/googlecalendar.png",
+          "/source/e01-agent-computer/assets/notion.png",
+          "/source/e01-agent-computer/assets/slack.png"
+        ],
+        "notes": "/notes/e01-agent-computer.md"
+      },
+      "keywords": [
+        "chatbot",
+        "agent",
+        "computer",
+        "apps",
+        "chatgpt",
+        "own computer",
+        "tools",
+        "gmail",
+        "slack",
+        "notion",
+        "upgrade",
+        "before after"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "e02",
+      "slug": "e02-one-point-of-contact",
+      "title": "One point of contact",
+      "topic": "The race for a single point of contact agent orchestrator.",
+      "notes": "Explains talking to one main agent that delegates to coding agents. Use it for 'one point of contact', 'main agent' or 'orchestrator'. Beats: You (0.2s) \u2192 arrow \u2192 Main agent with rings (1.05s) \u2192 three curved coral wires fan out (1.9s) \u2192 Codex, Claude Code, Cursor slide in (2.35s) \u2192 outer ring breathes \u2192 fade out (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 motion graphic on #212120 in Geist. A round 'You' node on the left (grey person icon), a coral arrow into a 320x300 'Main agent' panel with a white hub icon whose rings scale in. From it, three curved 4px coral wires draw out to three 200px panels holding the official Codex, Claude Code and Cursor logos, each with a grey 36px label to its right. The outer hub ring gently pulses. Fade out at 5.4s for a clean loop. No captions.",
+      "files": {
+        "video": "/media/e02-one-point-of-contact.mp4",
+        "poster": "/media/e02-one-point-of-contact.jpg",
+        "composition": "/source/e02-one-point-of-contact/index.html",
+        "live": "/play.html?id=e02-one-point-of-contact",
+        "assets": [
+          "/source/e02-one-point-of-contact/assets/Geist-Variable.woff2",
+          "/source/e02-one-point-of-contact/assets/claude_code.png",
+          "/source/e02-one-point-of-contact/assets/codex_mono.png",
+          "/source/e02-one-point-of-contact/assets/cursor.png"
+        ],
+        "notes": "/notes/e02-one-point-of-contact.md"
+      },
+      "keywords": [
+        "orchestrator",
+        "main agent",
+        "delegate",
+        "single point of contact",
+        "codex",
+        "claude code",
+        "cursor",
+        "fan out",
+        "one agent"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "e03",
+      "slug": "e03-primary-agent",
+      "title": "Pick an agent vs primary agent",
+      "topic": "Grok Bot added a primary bot so you stop choosing which agent to talk to.",
+      "notes": "Before/after: on the left you pick from six agents (dashed grey choice lines); on the right one primary agent fans work out to six sub-agents with coral lines. Use it when a product adds a 'main', 'primary' or 'chief of staff' agent. Beats: left grid (0.4s) \u2192 divider (1.4s) \u2192 right: you \u2192 primary (2.25s) \u2192 fan (2.75s) \u2192 sub-agents (3.05s) \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 before/after motion graphic on #212120 in Geist, split by a faint vertical divider. Left: a small person node with dashed grey lines to a 3x2 grid of grey robot-face tiles, labelled 'Pick an agent' in grey. Right: a person node, a short coral arrow down into one larger robot tile with a light border, then six coral lines fan down to six small robot tiles; label 'Primary agent' in white. Animate left first, then right. Fade out at 5.4s. No captions.",
+      "files": {
+        "video": "/media/e03-primary-agent.mp4",
+        "poster": "/media/e03-primary-agent.jpg",
+        "composition": "/source/e03-primary-agent/index.html",
+        "live": "/play.html?id=e03-primary-agent",
+        "assets": [
+          "/source/e03-primary-agent/assets/Geist-Variable.woff2"
+        ],
+        "notes": "/notes/e03-primary-agent.md"
+      },
+      "keywords": [
+        "primary agent",
+        "chief of staff",
+        "choose agent",
+        "before after",
+        "grok bot",
+        "sub agents",
+        "routing"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "e04",
+      "slug": "e04-threads-vs-agents",
+      "title": "Threads vs agents",
+      "topic": "Claude Code Projects treat work as threads in a project; Grok Bot treats it as agents.",
+      "notes": "Compares two mental models: a project folder of threads (Claude Code) vs a team of personified agents (Grok Bot). Use it when comparing how Claude Projects and Grok Bot organise work. Beats: Claude Code wordmark + folder panel, thread rows slide in (0.75s), live dot pulses \u2192 Grok Bot wordmark + agent avatars pop in (2.25s) \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 comparison on #212120 in Geist. Two 600x520 #2B2B29 panels. Left, under the official Claude Code wordmark: a white folder icon and four thread rows (dark pill rows with a dot and a grey bar) sliding in; the first row's dot is coral and pulses. Label 'Threads'. Right, under the Grok Bot wordmark: a 2x2 grid of round robot-face avatars popping in, the first one white. Label 'Agents'. Fade out at 5.4s. No captions.",
+      "files": {
+        "video": "/media/e04-threads-vs-agents.mp4",
+        "poster": "/media/e04-threads-vs-agents.jpg",
+        "composition": "/source/e04-threads-vs-agents/index.html",
+        "live": "/play.html?id=e04-threads-vs-agents",
+        "assets": [
+          "/source/e04-threads-vs-agents/assets/Geist-Variable.woff2",
+          "/source/e04-threads-vs-agents/assets/claude_code_wordmark.png",
+          "/source/e04-threads-vs-agents/assets/grokbot.png"
+        ],
+        "notes": "/notes/e04-threads-vs-agents.md"
+      },
+      "keywords": [
+        "threads",
+        "agents",
+        "projects",
+        "claude code",
+        "grok bot",
+        "compare",
+        "mental model",
+        "folders vs agents"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "e05",
+      "slug": "e05-lowest-level",
+      "title": "Learn the lowest level",
+      "topic": "Learn Claude Code / Codex / Cursor so you can direct the agents built on top of them.",
+      "notes": "A three-layer stack: You \u2192 Agent (dots, Grok Bot) \u2192 Code (Claude Code, Codex, Cursor). A coral arrow travels down to the lowest level, which glows. Use it for 'learn the hardest level' or 'the base layer'. Beats: You slab (0.2s) \u2192 Agent slab (0.55s) \u2192 arrow travels down (1.2s) \u2192 Code slab and logos (1.75s) \u2192 glow pulse (2.9s) \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 motion graphic on #212120 in Geist: three stacked 1340px-wide #2B2B29 slabs. Top 'You' with a person icon, middle 'Agent' with the dots and Grok Bot wordmarks, bottom (taller, light border) 'Code' with the Claude Code, Codex and Cursor logos. A 4px coral arrow draws down the left side from top to bottom as the slabs drop in, then the Code slab softly glows coral twice. Fade out at 5.4s. No captions.",
+      "files": {
+        "video": "/media/e05-lowest-level.mp4",
+        "poster": "/media/e05-lowest-level.jpg",
+        "composition": "/source/e05-lowest-level/index.html",
+        "live": "/play.html?id=e05-lowest-level",
+        "assets": [
+          "/source/e05-lowest-level/assets/Geist-Variable.woff2",
+          "/source/e05-lowest-level/assets/claude_code.png",
+          "/source/e05-lowest-level/assets/codex_mono.png",
+          "/source/e05-lowest-level/assets/cursor.png",
+          "/source/e05-lowest-level/assets/dots.png",
+          "/source/e05-lowest-level/assets/grokbot.png"
+        ],
+        "notes": "/notes/e05-lowest-level.md"
+      },
+      "keywords": [
+        "stack",
+        "layers",
+        "lowest level",
+        "learn",
+        "claude code",
+        "codex",
+        "cursor",
+        "hierarchy",
+        "foundation"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "e06",
+      "slug": "e06-interface-x-model",
+      "title": "Interface \u00d7 model",
+      "topic": "A great interface only takes you so far; the model matters as much.",
+      "notes": "Shows that results come from interface times model. Use it when a video says 'the best interface but a weak model' or vice versa. Beats: app window draws on (0.45s), layout blocks fill in \u2192 the \u00d7 spins in (1.55s) \u2192 chip outline draws, die pops (2.2s), die pulses \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 motion graphic on #212120 in Geist. Two 480px #2B2B29 panels with a large grey '\u00d7' between them. Left: a white outline app window that draws itself on, three title-bar dots and three translucent layout blocks fill in; label 'Interface'. Right: a white outline chip with pins draws on and its centre die pops in and pulses; label 'Model'. The \u00d7 spins in between them. Fade out at 5.4s. No captions.",
+      "files": {
+        "video": "/media/e06-interface-x-model.mp4",
+        "poster": "/media/e06-interface-x-model.jpg",
+        "composition": "/source/e06-interface-x-model/index.html",
+        "live": "/play.html?id=e06-interface-x-model",
+        "assets": [
+          "/source/e06-interface-x-model/assets/Geist-Variable.woff2"
+        ],
+        "notes": "/notes/e06-interface-x-model.md"
+      },
+      "keywords": [
+        "interface",
+        "model",
+        "multiply",
+        "ui",
+        "quality",
+        "equation",
+        "compare",
+        "product vs model"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "e07",
+      "slug": "e07-local-vs-cloud",
+      "title": "Local vs cloud agent",
+      "topic": "Agents that run on your own computer keep your logins, files and footage.",
+      "notes": "Compares an agent on your computer (logins, files, video) with one in the cloud. Local is the focal side. Use it when explaining why local agents matter, such as for video editing. Beats: laptop draws (0.45s), key, folder and video icons pop (1.2s) \u2192 cloud draws (2.15s) and floats \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 comparison on #212120 in Geist. Left 560x480 panel with a light border: a white outline laptop draws on, then grey key, folder and play-button icons pop in beneath it; label 'Local' in white. Right panel with a hairline border: a grey outline cloud draws on and gently floats; label 'Cloud' in grey. Fade out at 5.4s. No captions.",
+      "files": {
+        "video": "/media/e07-local-vs-cloud.mp4",
+        "poster": "/media/e07-local-vs-cloud.jpg",
+        "composition": "/source/e07-local-vs-cloud/index.html",
+        "live": "/play.html?id=e07-local-vs-cloud",
+        "assets": [
+          "/source/e07-local-vs-cloud/assets/Geist-Variable.woff2"
+        ],
+        "notes": "/notes/e07-local-vs-cloud.md"
+      },
+      "keywords": [
+        "local",
+        "cloud",
+        "computer",
+        "laptop",
+        "files",
+        "logins",
+        "privacy",
+        "compare",
+        "where agents run"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "e08",
+      "slug": "e08-delegate-from-phone",
+      "title": "Delegate from your phone",
+      "topic": "Calling your dot with AirPods in and having it spin up Codex sessions on your computer.",
+      "notes": "A three-step flow: voice on your phone \u2192 your agent (dots) \u2192 work on your computer (Codex). Use it for delegating by voice. Beats: phone with an animated waveform (0.2s) \u2192 arrow (1.2s) \u2192 dots panel (1.5s) \u2192 arrow (2.3s) \u2192 monitor draws and Codex pops in (2.8s) \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 flow on #212120 in Geist: three 400x440 #2B2B29 panels joined by 4px coral arrows that draw on in sequence. Panel 1: a grey phone outline with a five-bar voice waveform that bounces; label 'Voice'. Panel 2 (light border): the official dots wordmark rises in; label 'Agent'. Panel 3: a grey monitor outline draws on and the Codex logo pops onto the screen; label 'Computer'. Fade out at 5.4s. No captions.",
+      "files": {
+        "video": "/media/e08-delegate-from-phone.mp4",
+        "poster": "/media/e08-delegate-from-phone.jpg",
+        "composition": "/source/e08-delegate-from-phone/index.html",
+        "live": "/play.html?id=e08-delegate-from-phone",
+        "assets": [
+          "/source/e08-delegate-from-phone/assets/Geist-Variable.woff2",
+          "/source/e08-delegate-from-phone/assets/codex_mono.png",
+          "/source/e08-delegate-from-phone/assets/dots.png"
+        ],
+        "notes": "/notes/e08-delegate-from-phone.md"
+      },
+      "keywords": [
+        "phone",
+        "voice",
+        "delegate",
+        "airpods",
+        "dots",
+        "codex",
+        "remote",
+        "flow",
+        "mobile"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "e09",
+      "slug": "e09-agent-tools",
+      "title": "An agent with its own tools",
+      "topic": "I gave GrokBot its own email and credit card.",
+      "notes": "A hub-and-spoke: one agent in the centre connects to its own email, card, Slack, calendar, Notion and the web. Use it when an agent gets its own accounts or tools. Beats: hub pops and blinks (0.2s) \u2192 six coral spokes draw and tools pop clockwise (1.1s) \u2192 hub glows \u2192 second blink \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 hub-and-spoke motion graphic on #212120 in Geist. Centre: a 260px round #2B2B29 node with a light border and a white robot-face icon that blinks. Around it at 60\u00b0 steps, six 150px rounded tiles: Gmail, a credit card icon, Slack, Google Calendar, Notion and a globe. 4px coral spokes draw from the hub to each tile in turn as each tile pops in, then the hub glows coral. Fade out at 5.4s. No captions.",
+      "files": {
+        "video": "/media/e09-agent-tools.mp4",
+        "poster": "/media/e09-agent-tools.jpg",
+        "composition": "/source/e09-agent-tools/index.html",
+        "live": "/play.html?id=e09-agent-tools",
+        "assets": [
+          "/source/e09-agent-tools/assets/Geist-Variable.woff2",
+          "/source/e09-agent-tools/assets/gmail.png",
+          "/source/e09-agent-tools/assets/googlecalendar.png",
+          "/source/e09-agent-tools/assets/notion.png",
+          "/source/e09-agent-tools/assets/slack.png"
+        ],
+        "notes": "/notes/e09-agent-tools.md"
+      },
+      "keywords": [
+        "tools",
+        "integrations",
+        "email",
+        "credit card",
+        "hub",
+        "spokes",
+        "connectors",
+        "apps",
+        "accounts"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "e10",
+      "slug": "e10-the-race",
+      "title": "The race",
+      "topic": "Every lab is racing to build the single point of contact agent.",
+      "notes": "A launch timeline from Aug to Oct 2026: Grok Bot (Aug 11), Muse (Sep 8), Claude Code Projects (Sep 17), dots (Sep 29), then Gemini on a dashed, still-moving coral line. Use it for 'the great race'. Beats: line draws Aug \u2192 Oct (0.2s) with each launch landing as it reaches its date \u2192 future line marches (2.2s) \u2192 Gemini lands (2.6s) \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 timeline on #212120 in Geist. A faint white horizontal line draws from Aug to Oct with grey month ticks and labels. As it passes each date a white dot pops and an official logo rises in, alternating above and below: Grok Bot (Aug 11), Meta/Muse (Sep 8), Claude Code (Sep 17), dots (Sep 29). Then a dashed coral line marches on past today to a hollow dot where a dimmed Gemini wordmark appears. Fade out at 5.4s. No captions.",
+      "files": {
+        "video": "/media/e10-the-race.mp4",
+        "poster": "/media/e10-the-race.jpg",
+        "composition": "/source/e10-the-race/index.html",
+        "live": "/play.html?id=e10-the-race",
+        "assets": [
+          "/source/e10-the-race/assets/Geist-Variable.woff2",
+          "/source/e10-the-race/assets/claude_code_wordmark.png",
+          "/source/e10-the-race/assets/dots.png",
+          "/source/e10-the-race/assets/gemini_wordmark_white.png",
+          "/source/e10-the-race/assets/grokbot.png",
+          "/source/e10-the-race/assets/meta_logo.png"
+        ],
+        "notes": "/notes/e10-the-race.md"
+      },
+      "keywords": [
+        "timeline",
+        "race",
+        "launches",
+        "dates",
+        "history",
+        "grok bot",
+        "muse",
+        "dots",
+        "gemini",
+        "claude"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Explainer"
+    },
+    {
+      "id": "t01",
+      "slug": "t01-concept-card",
+      "title": "Concept card",
+      "topic": "Introduce a concept with the companies behind it.",
+      "notes": "A text card for introducing a concept: one logo group, then two same-size lines (white, then grey). Use it only when naming a new idea. Beats: logos pop in (0.2s) \u2192 line 1 fades up (0.85s) \u2192 line 2 (2.2s) \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 text card on #212120 in Geist Medium. Centered: a row of three official logos (OpenAI, Anthropic, SpaceX) that pop in one by one, then 64px below two lines at the same 72px size, tracking -2%: 'A single point of contact.' in #F4F3EF and 'Agent orchestrator.' in #9C9B96, each fading up as it is said. No other text. Fade out at 5.4s.",
+      "keywords": [
+        "text card",
+        "concept",
+        "intro",
+        "two lines",
+        "logos",
+        "title",
+        "statement",
+        "definition",
+        "idea"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t01-concept-card.mp4",
+        "poster": "/media/t01-concept-card.jpg",
+        "composition": "/source/t01-concept-card/index.html",
+        "live": "/play.html?id=t01-concept-card",
+        "assets": [
+          "/source/t01-concept-card/assets/Geist-Variable.woff2",
+          "/source/t01-concept-card/assets/anthropic.png",
+          "/source/t01-concept-card/assets/openai.png",
+          "/source/t01-concept-card/assets/spacex.png"
+        ],
+        "notes": "/notes/t01-concept-card.md"
+      }
+    },
+    {
+      "id": "t02",
+      "slug": "t02-hot-take",
+      "title": "Hot take card",
+      "topic": "Land a contrarian opinion with one logo.",
+      "notes": "A text card for a hot take: one logo above a grey setup line and a white punchline, both the same size. Beats: logo pops (0.2s) \u2192 grey line (0.7s) \u2192 white line (1.9s) with a small logo bounce \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 hot-take card on #212120 in Geist Medium. Centered: the Claude Code pixel mascot pops in, then two 72px lines: 'Nobody should be using Claude.' in grey #9C9B96, then 'Everyone should be using Claude Code.' in white, with the mascot bouncing once as the second line lands. Fade out at 5.4s. No captions.",
+      "keywords": [
+        "hot take",
+        "opinion",
+        "contrast",
+        "text card",
+        "two lines",
+        "punchline",
+        "claim",
+        "controversial"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t02-hot-take.mp4",
+        "poster": "/media/t02-hot-take.jpg",
+        "composition": "/source/t02-hot-take/index.html",
+        "live": "/play.html?id=t02-hot-take",
+        "assets": [
+          "/source/t02-hot-take/assets/Geist-Variable.woff2",
+          "/source/t02-hot-take/assets/claude_code.png"
+        ],
+        "notes": "/notes/t02-hot-take.md"
+      }
+    },
+    {
+      "id": "t03",
+      "slug": "t03-video-on-grey",
+      "title": "Launch video on grey",
+      "topic": "Show official launch footage, full screen, on the brand grey.",
+      "notes": "A full-screen video insert: the official launch clip plays inside a 1600x900 rounded frame (28px radius, hairline, soft shadow) on #212120. Never picture-in-picture over the A-roll. Beats: frame scales 96\u2192100% (0\u20130.45s) \u2192 clip plays \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 video insert on #212120. Center a 1600x900 frame with 28px rounded corners, a 1px rgba(255,255,255,0.10) border and a soft drop shadow, playing an official launch video muted (here OpenAI's dots launch film). The frame scales in from 95.5% to 100% over 0.45s with power3.out. No captions or source tags. Fade out at 5.4s.",
+      "keywords": [
+        "video",
+        "launch video",
+        "footage",
+        "b-roll",
+        "official",
+        "insert",
+        "product demo",
+        "announcement",
+        "framed video"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t03-video-on-grey.mp4",
+        "poster": "/media/t03-video-on-grey.jpg",
+        "composition": "/source/t03-video-on-grey/index.html",
+        "live": "/play.html?id=t03-video-on-grey",
+        "assets": [
+          "/source/t03-video-on-grey/assets/Geist-Variable.woff2",
+          "/source/t03-video-on-grey/assets/dots_launch.mp4"
+        ],
+        "notes": "/notes/t03-video-on-grey.md"
+      }
+    },
+    {
+      "id": "t04",
+      "slug": "t04-video-on-blur",
+      "title": "Launch video on blurred A-roll",
+      "topic": "Show launch footage over a blurred copy of your own shot.",
+      "notes": "A full-screen video insert over your own footage: the A-roll scaled up 15%, blurred and dimmed to 50% fills the frame, and the launch clip plays in a 1520x855 rounded frame on top. Beats: frame scales in (0.1s) \u2192 both play \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 video insert. Background: the speaker's own footage scaled up 15%, Gaussian blurred heavily and darkened to 50% brightness. On top, a 1520x855 frame with 28px radius, a light hairline and a deep shadow, playing an official launch clip muted (here Grok Bot's Primary Bot). Scale the frame in from 95.5% over 0.45s. No captions. Fade out at 5.4s.",
+      "keywords": [
+        "video",
+        "blur",
+        "blurred background",
+        "a-roll",
+        "launch video",
+        "insert",
+        "footage",
+        "depth",
+        "overlay",
+        "a-roll",
+        "me",
+        "on camera"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t04-video-on-blur.mp4",
+        "poster": "/media/t04-video-on-blur.jpg",
+        "composition": "/source/t04-video-on-blur/index.html",
+        "live": "/play.html?id=t04-video-on-blur",
+        "assets": [
+          "/source/t04-video-on-blur/assets/Geist-Variable.woff2",
+          "/source/t04-video-on-blur/assets/grok_primary.mp4",
+          "/source/t04-video-on-blur/assets/riley_blur_bg.mp4"
+        ],
+        "notes": "/notes/t04-video-on-blur.md"
+      }
+    },
+    {
+      "id": "t05",
+      "slug": "t05-side-by-side",
+      "title": "Side-by-side compare",
+      "topic": "Compare two products' footage at once.",
+      "notes": "Two 800x450 video cards side by side, each under its product's wordmark, for direct comparisons. Beats: cards rise in, staggered (0.15s) \u2192 wordmarks fade in (0.4s) \u2192 both play \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 comparison on #212120. Two 800x450 video cards (24px radius, hairline, shadow) side by side with a 64px gap, each playing muted official footage: Claude Code Projects on the left, Grok Bot on the right. Above each, its official wordmark (Claude Code, Grok Bot) about 54px tall. Cards rise in staggered, then the wordmarks fade in. No captions. Fade out at 5.4s.",
+      "keywords": [
+        "compare",
+        "versus",
+        "vs",
+        "side by side",
+        "two videos",
+        "split screen",
+        "comparison",
+        "head to head"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t05-side-by-side.mp4",
+        "poster": "/media/t05-side-by-side.jpg",
+        "composition": "/source/t05-side-by-side/index.html",
+        "live": "/play.html?id=t05-side-by-side",
+        "assets": [
+          "/source/t05-side-by-side/assets/Geist-Variable.woff2",
+          "/source/t05-side-by-side/assets/claude_code_wordmark.png",
+          "/source/t05-side-by-side/assets/claude_projects.mp4",
+          "/source/t05-side-by-side/assets/grok_launch.mp4",
+          "/source/t05-side-by-side/assets/grokbot.png"
+        ],
+        "notes": "/notes/t05-side-by-side.md"
+      }
+    },
+    {
+      "id": "t06",
+      "slug": "t06-single-logo",
+      "title": "Single logo reveal",
+      "topic": "Name one product with its official logo.",
+      "notes": "One official logo, centered on #212120, popping in on the word and slowly pushing in. Beats: pop 86\u2192100% (0.25s) \u2192 slow push to 104% \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 logo reveal on #212120. The official Gemini wordmark (white text, color sparkle) at 150px tall, centered, pops in from 86% scale with back.out, then slowly pushes in to 104% over 4.5s. Nothing else on screen. Fade out at 5.4s.",
+      "keywords": [
+        "logo",
+        "single logo",
+        "reveal",
+        "brand",
+        "product name",
+        "mention",
+        "wordmark",
+        "intro"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t06-single-logo.mp4",
+        "poster": "/media/t06-single-logo.jpg",
+        "composition": "/source/t06-single-logo/index.html",
+        "live": "/play.html?id=t06-single-logo",
+        "assets": [
+          "/source/t06-single-logo/assets/Geist-Variable.woff2",
+          "/source/t06-single-logo/assets/gemini_wordmark_white.png"
+        ],
+        "notes": "/notes/t06-single-logo.md"
+      }
+    },
+    {
+      "id": "t07",
+      "slug": "t07-logo-row",
+      "title": "Logo row",
+      "topic": "Show the players in a space, one by one.",
+      "notes": "Five official logos in a row with names on one baseline, each popping in as it's named. Beats: logo every 0.4s from 0.3s, labels follow \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 logo row on #212120 in Geist. Five official logos (Google, OpenAI, SpaceX, Anthropic, Meta), each in a 280px column with its name in Geist Medium 36px #9C9B96 on a shared baseline. Each logo pops in from 86% with back.out every 0.4s, its label fading up just after. Fade out at 5.4s. No captions.",
+      "keywords": [
+        "logos",
+        "logo row",
+        "companies",
+        "players",
+        "competitors",
+        "list",
+        "market",
+        "labs",
+        "lineup"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t07-logo-row.mp4",
+        "poster": "/media/t07-logo-row.jpg",
+        "composition": "/source/t07-logo-row/index.html",
+        "live": "/play.html?id=t07-logo-row",
+        "assets": [
+          "/source/t07-logo-row/assets/Geist-Variable.woff2",
+          "/source/t07-logo-row/assets/anthropic.png",
+          "/source/t07-logo-row/assets/google.png",
+          "/source/t07-logo-row/assets/meta_logo.png",
+          "/source/t07-logo-row/assets/openai.png",
+          "/source/t07-logo-row/assets/spacex.png"
+        ],
+        "notes": "/notes/t07-logo-row.md"
+      }
+    },
+    {
+      "id": "t08",
+      "slug": "t08-delegation-flow",
+      "title": "Delegation flow",
+      "topic": "Show which product hands work to which.",
+      "notes": "Two rows of A \u2192 B pairs joined by coral arrows: Grok Bot \u2192 Cursor, dots \u2192 Codex. Beats: row one (0.2\u20131.35s), row two (1.7\u20132.85s) \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 flow on #212120 in Geist. Two rows, each a source wordmark, a 4px coral (#F07A5A) arrow that draws on, and a target logo with a grey 36px label: Grok Bot \u2192 Cursor, then dots \u2192 Codex. Each row animates source, arrow, target in order. Fade out at 5.4s. No captions.",
+      "keywords": [
+        "flow",
+        "delegation",
+        "arrow",
+        "hands off",
+        "a to b",
+        "pairs",
+        "pipeline",
+        "sends work",
+        "connects"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t08-delegation-flow.mp4",
+        "poster": "/media/t08-delegation-flow.jpg",
+        "composition": "/source/t08-delegation-flow/index.html",
+        "live": "/play.html?id=t08-delegation-flow",
+        "assets": [
+          "/source/t08-delegation-flow/assets/Geist-Variable.woff2",
+          "/source/t08-delegation-flow/assets/codex_mono.png",
+          "/source/t08-delegation-flow/assets/cursor.png",
+          "/source/t08-delegation-flow/assets/dots.png",
+          "/source/t08-delegation-flow/assets/grokbot.png"
+        ],
+        "notes": "/notes/t08-delegation-flow.md"
+      }
+    },
+    {
+      "id": "t09",
+      "slug": "t09-website",
+      "title": "Website screenshot",
+      "topic": "Show a website in a clean browser frame.",
+      "notes": "A 1440px browser frame (traffic-light dots and a URL pill) holding a full-page screenshot that slowly pushes in. Beats: browser rises (0.15s) \u2192 screenshot pushes 100\u2192105% \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 website shot on #212120. A 1440px-wide browser window (#2B2B29, 24px radius, hairline, shadow) with three grey traffic-light dots and a centered URL pill reading 'agentnative.inc', showing the site's screenshot. The window rises in, then the screenshot slowly pushes in to 105%. Fade out at 5.4s.",
+      "keywords": [
+        "website",
+        "browser",
+        "screenshot",
+        "url",
+        "landing page",
+        "web page",
+        "site",
+        "homepage",
+        "link"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t09-website.mp4",
+        "poster": "/media/t09-website.jpg",
+        "composition": "/source/t09-website/index.html",
+        "live": "/play.html?id=t09-website",
+        "assets": [
+          "/source/t09-website/assets/Geist-Variable.woff2",
+          "/source/t09-website/assets/agentnative_site.jpg"
+        ],
+        "notes": "/notes/t09-website.md"
+      }
+    },
+    {
+      "id": "t10",
+      "slug": "t10-benchmark",
+      "title": "Benchmark chart",
+      "topic": "Point at the one number that matters.",
+      "notes": "An official benchmark table in a rounded card with a single coral highlight box drawn around the column that matters. Beats: card rises (0.15s) \u2192 box draws on (1.1s) \u2192 box pulses \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 benchmark shot on #212120. A 1600x770 rounded card showing the official Claude Opus 5.5 benchmark table. A 4px coral (#F07A5A) rounded rectangle draws itself around the Opus 5.5 column, then gently pulses. One highlight only. Fade out at 5.4s.",
+      "keywords": [
+        "benchmark",
+        "chart",
+        "table",
+        "stats",
+        "numbers",
+        "highlight",
+        "data",
+        "model comparison",
+        "scores",
+        "proof"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t10-benchmark.mp4",
+        "poster": "/media/t10-benchmark.jpg",
+        "composition": "/source/t10-benchmark/index.html",
+        "live": "/play.html?id=t10-benchmark",
+        "assets": [
+          "/source/t10-benchmark/assets/Geist-Variable.woff2",
+          "/source/t10-benchmark/assets/opus_chart.jpg"
+        ],
+        "notes": "/notes/t10-benchmark.md"
+      }
+    },
+    {
+      "id": "t11",
+      "slug": "t11-post-card",
+      "title": "Official post card",
+      "topic": "Quote a real launch post with its video.",
+      "notes": "A real post recreated as a clean card: avatar, name and handle, the post's real text, and its launch video playing below. Beats: card rises (0.15s) \u2192 header (0.45s) \u2192 text (0.65s) \u2192 video (1.0s) \u2192 fade (5.4s).",
+      "prompt": "Make a 6-second 1920x1080 post card on #212120 in Geist. A 1120px #2B2B29 card (28px radius) with a round avatar (the Claude mark on white), 'Claude' and '@claudeai', the post's real text at 40px: 'Projects now run from one conversation, starting in Claude Code. You describe what needs doing, and Claude directs parallel threads that keep working after you close your laptop.', and a 420px rounded media area playing the post's launch video muted. Parts fade up in order. Fade out at 5.4s.",
+      "keywords": [
+        "tweet",
+        "post",
+        "x",
+        "twitter",
+        "announcement",
+        "quote",
+        "social",
+        "launch post",
+        "official post"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t11-post-card.mp4",
+        "poster": "/media/t11-post-card.jpg",
+        "composition": "/source/t11-post-card/index.html",
+        "live": "/play.html?id=t11-post-card",
+        "assets": [
+          "/source/t11-post-card/assets/Geist-Variable.woff2",
+          "/source/t11-post-card/assets/claude_projects.mp4",
+          "/source/t11-post-card/assets/claude_symbol.png"
+        ],
+        "notes": "/notes/t11-post-card.md"
+      }
+    },
+    {
+      "id": "t12",
+      "slug": "t12-label-plain",
+      "title": "Name label \u00b7 plain",
+      "topic": "Put your name on screen over your own footage.",
+      "notes": "Your A-roll with 'Riley Brown' bottom-left (96px in, 84px up) in Geist Semibold 60px over a soft corner shade. Name only, never a subtitle. Beats: shade (0.4s) \u2192 name fades up (0.55s) \u2192 hold ~4s \u2192 out (4.6s).",
+      "prompt": "Make a 6-second 1920x1080 name label over the speaker's own footage. Bottom-left, 96px from the left and 84px from the bottom, the name 'Riley Brown' in Geist Semibold 60px white with a soft text shadow, over a subtle radial dark shade in that corner. The shade and name fade up at about 0.5s and fade out at 4.6s. One line only, no title or subtitle.",
+      "keywords": [
+        "name",
+        "lower third",
+        "label",
+        "intro",
+        "person",
+        "speaker",
+        "overlay",
+        "on video",
+        "name tag",
+        "introduction",
+        "riley",
+        "me",
+        "my face",
+        "a-roll",
+        "on camera"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t12-label-plain.mp4",
+        "poster": "/media/t12-label-plain.jpg",
+        "composition": "/source/t12-label-plain/index.html",
+        "live": "/play.html?id=t12-label-plain",
+        "assets": [
+          "/source/t12-label-plain/assets/Geist-Variable.woff2",
+          "/source/t12-label-plain/assets/riley_150.mp4"
+        ],
+        "notes": "/notes/t12-label-plain.md"
+      }
+    },
+    {
+      "id": "t13",
+      "slug": "t13-label-pill",
+      "title": "Name label \u00b7 pill",
+      "topic": "Name label as a grey pill over your footage.",
+      "notes": "Your A-roll with 'Riley Brown' in a rounded #212120 pill at 88% opacity, bottom-left. Beats: pill slides in from the left (0.55s) \u2192 hold \u2192 out (4.6s).",
+      "prompt": "Make a 6-second 1920x1080 name label over the speaker's own footage. Bottom-left (96px in, 84px up), a fully rounded pill in rgba(33,33,32,0.88) with a light hairline and soft shadow, holding 'Riley Brown' in Geist Medium 44px. It slides in from the left with a fade at 0.55s and fades out at 4.6s. One line only.",
+      "keywords": [
+        "name",
+        "lower third",
+        "pill",
+        "label",
+        "intro",
+        "person",
+        "speaker",
+        "overlay",
+        "on video",
+        "chip",
+        "riley",
+        "me",
+        "my face",
+        "a-roll",
+        "on camera"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t13-label-pill.mp4",
+        "poster": "/media/t13-label-pill.jpg",
+        "composition": "/source/t13-label-pill/index.html",
+        "live": "/play.html?id=t13-label-pill",
+        "assets": [
+          "/source/t13-label-pill/assets/Geist-Variable.woff2",
+          "/source/t13-label-pill/assets/riley_245.mp4"
+        ],
+        "notes": "/notes/t13-label-pill.md"
+      }
+    },
+    {
+      "id": "t14",
+      "slug": "t14-label-bar",
+      "title": "Name label \u00b7 accent bar",
+      "topic": "Name label with a coral bar over your footage.",
+      "notes": "Your A-roll with a 6px coral bar that grows up, then 'Riley Brown' sliding in beside it, bottom-left over a soft shade. Beats: shade (0.35s) \u2192 bar grows (0.5s) \u2192 name slides (0.72s) \u2192 out (4.6s).",
+      "prompt": "Make a 6-second 1920x1080 name label over the speaker's own footage. Bottom-left (96px in, 84px up): a 6x58px coral (#F07A5A) rounded bar that grows upward, then 'Riley Brown' in Geist Semibold 56px slides in beside it, over a subtle dark corner shade. Fade out at 4.6s. One line only, no subtitle.",
+      "keywords": [
+        "name",
+        "lower third",
+        "accent bar",
+        "label",
+        "intro",
+        "person",
+        "speaker",
+        "overlay",
+        "on video",
+        "coral",
+        "riley",
+        "me",
+        "my face",
+        "a-roll",
+        "on camera"
+      ],
+      "tags": [
+        "Riley1"
+      ],
+      "kind": "Template",
+      "files": {
+        "video": "/media/t14-label-bar.mp4",
+        "poster": "/media/t14-label-bar.jpg",
+        "composition": "/source/t14-label-bar/index.html",
+        "live": "/play.html?id=t14-label-bar",
+        "assets": [
+          "/source/t14-label-bar/assets/Geist-Variable.woff2",
+          "/source/t14-label-bar/assets/riley_560.mp4"
+        ],
+        "notes": "/notes/t14-label-bar.md"
+      }
+    }
+  ]
+}

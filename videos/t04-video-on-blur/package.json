@@ -1,0 +1,11 @@
+{
+  "name": "t04-video-on-blur",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.8.137 preview",
+    "check": "npx --yes hyperframes@0.8.137 check",
+    "render": "npx --yes hyperframes@0.8.137 render",
+    "publish": "npx --yes hyperframes@0.8.137 publish"
+  }
+}

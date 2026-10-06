@@ -1,0 +1,48 @@
+# Explainer Motion · Riley Brown
+
+> Motion graphics for Riley Brown's videos: ten topic explainers plus fourteen B-roll templates (text cards, video inserts, logo cards, screens and name labels over A-roll), built with HyperFrames (HTML + GSAP) and rendered to 1920x1080 MP4. Every entry ships notes, a recreation prompt, keywords, tags and the full composition source.
+
+Source: https://github.com/rbrown101010/explainer-motion
+
+## Start here
+- [Style guide](/style.md): palette, type, shapes, motion and HyperFrames rules shared by every entry
+- [Index (JSON)](/data/explainers.json): every entry with notes, prompt, keywords, tags and file paths
+- Live player: /play.html?id=<slug> runs any composition in a normal browser.
+- Search: /?q=<words> opens the gallery with a query; `tag:Riley1` filters by tag.
+
+## Tags
+- Riley1: Riley's dark #212120 + Geist + coral style (all entries today)
+
+## Topic explainers
+- [Chatbot → agent with a computer](/notes/e01-agent-computer.md): ChatGPT was a chatbot. Now it has its own computer. Keywords: chatbot, agent, computer, apps, chatgpt, own computer. Composition: /source/e01-agent-computer/index.html · Video: /media/e01-agent-computer.mp4
+- [One point of contact](/notes/e02-one-point-of-contact.md): The race for a single point of contact agent orchestrator. Keywords: orchestrator, main agent, delegate, single point of contact, codex, claude code. Composition: /source/e02-one-point-of-contact/index.html · Video: /media/e02-one-point-of-contact.mp4
+- [Pick an agent vs primary agent](/notes/e03-primary-agent.md): Grok Bot added a primary bot so you stop choosing which agent to talk to. Keywords: primary agent, chief of staff, choose agent, before after, grok bot, sub agents. Composition: /source/e03-primary-agent/index.html · Video: /media/e03-primary-agent.mp4
+- [Threads vs agents](/notes/e04-threads-vs-agents.md): Claude Code Projects treat work as threads in a project; Grok Bot treats it as agents. Keywords: threads, agents, projects, claude code, grok bot, compare. Composition: /source/e04-threads-vs-agents/index.html · Video: /media/e04-threads-vs-agents.mp4
+- [Learn the lowest level](/notes/e05-lowest-level.md): Learn Claude Code / Codex / Cursor so you can direct the agents built on top of them. Keywords: stack, layers, lowest level, learn, claude code, codex. Composition: /source/e05-lowest-level/index.html · Video: /media/e05-lowest-level.mp4
+- [Interface × model](/notes/e06-interface-x-model.md): A great interface only takes you so far; the model matters as much. Keywords: interface, model, multiply, ui, quality, equation. Composition: /source/e06-interface-x-model/index.html · Video: /media/e06-interface-x-model.mp4
+- [Local vs cloud agent](/notes/e07-local-vs-cloud.md): Agents that run on your own computer keep your logins, files and footage. Keywords: local, cloud, computer, laptop, files, logins. Composition: /source/e07-local-vs-cloud/index.html · Video: /media/e07-local-vs-cloud.mp4
+- [Delegate from your phone](/notes/e08-delegate-from-phone.md): Calling your dot with AirPods in and having it spin up Codex sessions on your computer. Keywords: phone, voice, delegate, airpods, dots, codex. Composition: /source/e08-delegate-from-phone/index.html · Video: /media/e08-delegate-from-phone.mp4
+- [An agent with its own tools](/notes/e09-agent-tools.md): I gave GrokBot its own email and credit card. Keywords: tools, integrations, email, credit card, hub, spokes. Composition: /source/e09-agent-tools/index.html · Video: /media/e09-agent-tools.mp4
+- [The race](/notes/e10-the-race.md): Every lab is racing to build the single point of contact agent. Keywords: timeline, race, launches, dates, history, grok bot. Composition: /source/e10-the-race/index.html · Video: /media/e10-the-race.mp4
+
+## B-roll templates
+- [Concept card](/notes/t01-concept-card.md): Introduce a concept with the companies behind it. Keywords: text card, concept, intro, two lines, logos, title. Composition: /source/t01-concept-card/index.html · Video: /media/t01-concept-card.mp4
+- [Hot take card](/notes/t02-hot-take.md): Land a contrarian opinion with one logo. Keywords: hot take, opinion, contrast, text card, two lines, punchline. Composition: /source/t02-hot-take/index.html · Video: /media/t02-hot-take.mp4
+- [Launch video on grey](/notes/t03-video-on-grey.md): Show official launch footage, full screen, on the brand grey. Keywords: video, launch video, footage, b-roll, official, insert. Composition: /source/t03-video-on-grey/index.html · Video: /media/t03-video-on-grey.mp4
+- [Launch video on blurred A-roll](/notes/t04-video-on-blur.md): Show launch footage over a blurred copy of your own shot. Keywords: video, blur, blurred background, a-roll, launch video, insert. Composition: /source/t04-video-on-blur/index.html · Video: /media/t04-video-on-blur.mp4
+- [Side-by-side compare](/notes/t05-side-by-side.md): Compare two products' footage at once. Keywords: compare, versus, vs, side by side, two videos, split screen. Composition: /source/t05-side-by-side/index.html · Video: /media/t05-side-by-side.mp4
+- [Single logo reveal](/notes/t06-single-logo.md): Name one product with its official logo. Keywords: logo, single logo, reveal, brand, product name, mention. Composition: /source/t06-single-logo/index.html · Video: /media/t06-single-logo.mp4
+- [Logo row](/notes/t07-logo-row.md): Show the players in a space, one by one. Keywords: logos, logo row, companies, players, competitors, list. Composition: /source/t07-logo-row/index.html · Video: /media/t07-logo-row.mp4
+- [Delegation flow](/notes/t08-delegation-flow.md): Show which product hands work to which. Keywords: flow, delegation, arrow, hands off, a to b, pairs. Composition: /source/t08-delegation-flow/index.html · Video: /media/t08-delegation-flow.mp4
+- [Website screenshot](/notes/t09-website.md): Show a website in a clean browser frame. Keywords: website, browser, screenshot, url, landing page, web page. Composition: /source/t09-website/index.html · Video: /media/t09-website.mp4
+- [Benchmark chart](/notes/t10-benchmark.md): Point at the one number that matters. Keywords: benchmark, chart, table, stats, numbers, highlight. Composition: /source/t10-benchmark/index.html · Video: /media/t10-benchmark.mp4
+- [Official post card](/notes/t11-post-card.md): Quote a real launch post with its video. Keywords: tweet, post, x, twitter, announcement, quote. Composition: /source/t11-post-card/index.html · Video: /media/t11-post-card.mp4
+- [Name label · plain](/notes/t12-label-plain.md): Put your name on screen over your own footage. Keywords: name, lower third, label, intro, person, speaker. Composition: /source/t12-label-plain/index.html · Video: /media/t12-label-plain.mp4
+- [Name label · pill](/notes/t13-label-pill.md): Name label as a grey pill over your footage. Keywords: name, lower third, pill, label, intro, person. Composition: /source/t13-label-pill/index.html · Video: /media/t13-label-pill.mp4
+- [Name label · accent bar](/notes/t14-label-bar.md): Name label with a coral bar over your footage. Keywords: name, lower third, accent bar, label, intro, person. Composition: /source/t14-label-bar/index.html · Video: /media/t14-label-bar.mp4
+
+## How to replicate for a new video
+1. Read /style.md.
+2. Search the index for the closest entry to what you want to show and read its notes.md.
+3. Copy its composition and assets, swap the logos, footage, words and timing, keep the style rules.
+4. Run `npx hyperframes check .` then `npx hyperframes render . -q high -o renders/video.mp4`.

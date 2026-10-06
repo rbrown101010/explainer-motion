@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>E2 · One point of contact</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { position: absolute; inset: 0; }
+      .node { position: absolute; display: flex; align-items: center; justify-content: center; background: var(--panel); border: 1px solid var(--line); }
+      .label { position: absolute; font-size: 40px; font-weight: 500; }
+      .small { font-size: 36px; color: var(--muted); }
+      .muted { color: var(--muted); }
+      #wires { position: absolute; left: 0; top: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="scene">
+        <svg id="wires" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" aria-hidden="true">
+          <path id="w-in" d="M420 540 H630 M610 526 L630 540 L610 554" pathLength="1" stroke-dasharray="1" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path id="w-1" d="M1000 540 C1190 540 1190 260 1376 260 M1356 246 L1376 260 L1356 274" pathLength="1" stroke-dasharray="1" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path id="w-2" d="M1000 540 H1376 M1356 526 L1376 540 L1356 554" pathLength="1" stroke-dasharray="1" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path id="w-3" d="M1000 540 C1190 540 1190 820 1376 820 M1356 806 L1376 820 L1356 834" pathLength="1" stroke-dasharray="1" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div id="you" class="node" style="left: 200px; top: 440px; width: 200px; height: 200px; border-radius: 50%">
+          <svg width="96" height="104" viewBox="0 0 96 104" fill="none" aria-hidden="true"><circle cx="48" cy="30" r="22" stroke="#9c9b96" stroke-width="7"></circle><path d="M8 100 C8 74 26 60 48 60 C70 60 88 74 88 100" stroke="#9c9b96" stroke-width="7" stroke-linecap="round"></path></svg>
+        </div>
+        <div id="you-label" class="label muted" style="left: 200px; top: 676px; width: 200px; text-align: center">You</div>
+        <div id="main-node" class="node" style="left: 660px; top: 390px; width: 320px; height: 300px; border-radius: 28px; border: 2px solid var(--focus)">
+          <svg width="150" height="150" viewBox="0 0 150 150" fill="none" aria-hidden="true"><circle id="core" cx="75" cy="75" r="22" fill="#f4f3ef"></circle><circle id="ring-1" cx="75" cy="75" r="48" stroke="#f4f3ef" stroke-width="6"></circle><circle id="ring-2" cx="75" cy="75" r="70" stroke="#f4f3ef" stroke-opacity="0.35" stroke-width="4"></circle></svg>
+        </div>
+        <div id="main-label" class="label" style="left: 600px; top: 726px; width: 440px; text-align: center">Main agent</div>
+        <div id="t-1" class="node" style="left: 1396px; top: 160px; width: 200px; height: 200px; border-radius: 28px"><img src="assets/codex_mono.png" alt="Codex" style="display: block; height: 104px; width: auto" /></div>
+        <div id="t-1-label" class="label small" style="left: 1626px; top: 236px">Codex</div>
+        <div id="t-2" class="node" style="left: 1396px; top: 440px; width: 200px; height: 200px; border-radius: 28px"><img src="assets/claude_code.png" alt="Claude Code" style="display: block; height: 76px; width: auto; image-rendering: pixelated" /></div>
+        <div id="t-2-label" class="label small" style="left: 1626px; top: 516px">Claude Code</div>
+        <div id="t-3" class="node" style="left: 1396px; top: 720px; width: 200px; height: 200px; border-radius: 28px"><img src="assets/cursor.png" alt="Cursor" style="display: block; height: 104px; width: auto" /></div>
+        <div id="t-3-label" class="label small" style="left: 1626px; top: 796px">Cursor</div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(["#you", "#you-label"], { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", stagger: 0.1 }, 0.2);
+      tl.fromTo("#w-in", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, 0.75);
+      tl.fromTo("#main-node", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 1.05);
+      tl.fromTo("#main-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 1.25);
+      tl.fromTo(["#ring-1", "#ring-2"], { scale: 0.4, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out", stagger: 0.12 }, 1.25);
+      tl.fromTo(["#w-1", "#w-2", "#w-3"], { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut", stagger: 0.18 }, 1.9);
+      tl.fromTo(["#t-1", "#t-2", "#t-3"], { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out", stagger: 0.18 }, 2.35);
+      tl.fromTo(["#t-1-label", "#t-2-label", "#t-3-label"], { opacity: 0 }, { opacity: 1, duration: 0.35, stagger: 0.18 }, 2.5);
+      tl.fromTo("#ring-2", { scale: 1 }, { scale: 1.08, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 3, transformOrigin: "50% 50%" }, 3.0);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

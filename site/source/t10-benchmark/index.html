@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Benchmark chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { position: absolute; inset: 0; }
+      .fill { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .inset { position: absolute; overflow: hidden; border: 1px solid var(--line); }
+
+      #card { position: absolute; left: 160px; top: 155px; width: 1600px; height: 770px; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 28px 80px rgba(0,0,0,0.5); }
+      #chart { display: block; width: 1600px; height: 770px; object-fit: cover; object-position: top; }
+      #highlight { position: absolute; left: 550px; top: 341px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+
+      <div id="scene">
+        <div id="card"><img id="chart" src="assets/opus_chart.jpg" alt="Claude Opus 5.5 benchmark table" /></div>
+        <svg id="highlight" width="248" height="596" viewBox="0 0 248 596" fill="none" aria-hidden="true"><rect id="box" x="2" y="2" width="244" height="592" rx="14" pathLength="1" stroke-dasharray="1" stroke="#f07a5a" stroke-width="4"></rect></svg>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#card", { opacity: 0, y: 40, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 0.15);
+      tl.fromTo("#box", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut" }, 1.1);
+      tl.fromTo("#box", { opacity: 1 }, { immediateRender: false, opacity: 0.55, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 3 }, 2.3);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

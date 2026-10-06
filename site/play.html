@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live composition · Explainer Motion</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #212120; overflow: hidden; }
+  #frame { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; border: 0; transform-origin: 0 0; }
+  a { position: fixed; left: 16px; top: 14px; font: 500 13px/1 system-ui, sans-serif; color: #9c9b96; text-decoration: none; z-index: 2; }
+  a:hover { color: #f4f3ef; }
+</style>
+</head>
+<body>
+<a href="/">← Explainer Motion</a>
+<iframe id="frame" title="Live HyperFrames composition"></iframe>
+<script>
+  // Plays a HyperFrames composition in a plain browser: provides the timeline registry the
+  // HyperFrames runtime normally creates, then loops the registered paused timeline.
+  const slug = new URLSearchParams(location.search).get("id") || "e01-agent-computer";
+  const frame = document.getElementById("frame");
+  const fit = () => { const s = Math.min(innerWidth / 1920, innerHeight / 1080); frame.style.transform = `scale(${s}) translate(-50%, -50%)`; };
+  addEventListener("resize", fit); fit();
+  fetch(`/source/${encodeURIComponent(slug)}/index.html`).then(r => { if (!r.ok) throw new Error(r.status); return r.text(); }).then(html => {
+    const boot = `<base href="/source/${slug}/"><script>window.__timelines = {}; addEventListener("load", () => { const tl = window.__timelines.main; if (tl) { tl.repeat(-1); tl.play(0); } });<\/script>`;
+    frame.srcdoc = html.replace(/<head>/i, "<head>" + boot);
+  }).catch(() => { document.body.insertAdjacentHTML("beforeend", '<p style="color:#9c9b96;font:16px system-ui;text-align:center;margin-top:45vh">Composition not found.</p>'); });
+</script>
+</body>
+</html>

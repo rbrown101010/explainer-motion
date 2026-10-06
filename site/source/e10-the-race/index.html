@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>E10 · The race</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { position: absolute; inset: 0; }
+      #track { position: absolute; left: 0; top: 0; }
+      .month { position: absolute; top: 596px; font-size: 30px; font-weight: 500; color: var(--muted); }
+      .launch { position: absolute; display: block; width: auto; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="scene">
+        <svg id="track" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" aria-hidden="true">
+          <path id="line" d="M200 560 H1290" pathLength="1" stroke-dasharray="1" stroke="#f4f3ef" stroke-opacity="0.35" stroke-width="4"></path>
+          <path id="future" d="M1290 560 H1740" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-dasharray="14 12"></path>
+          <path id="future-head" d="M1716 544 L1740 560 L1716 576" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path class="tick" d="M200 546 V574"  stroke="#9c9b96" stroke-width="3"></path>
+          <path class="tick" d="M712 546 V574"  stroke="#9c9b96" stroke-width="3"></path>
+          <path class="tick" d="M1207 546 V574" stroke="#9c9b96" stroke-width="3"></path>
+          <g id="m-grok"><path d="M365 540 V440" stroke="#f4f3ef" stroke-opacity="0.35" stroke-width="2"></path><circle cx="365" cy="560" r="12" fill="#f4f3ef"></circle></g>
+          <g id="m-muse"><path d="M827 580 V700" stroke="#f4f3ef" stroke-opacity="0.35" stroke-width="2"></path><circle cx="827" cy="560" r="12" fill="#f4f3ef"></circle></g>
+          <g id="m-claude"><path d="M976 540 V440" stroke="#f4f3ef" stroke-opacity="0.35" stroke-width="2"></path><circle cx="976" cy="560" r="12" fill="#f4f3ef"></circle></g>
+          <g id="m-dots"><path d="M1174 580 V700" stroke="#f4f3ef" stroke-opacity="0.35" stroke-width="2"></path><circle cx="1174" cy="560" r="12" fill="#f4f3ef"></circle></g>
+          <g id="m-gemini"><path d="M1560 540 V440" stroke="#f4f3ef" stroke-opacity="0.35" stroke-width="2"></path><circle cx="1560" cy="560" r="12" fill="#212120" stroke="#9c9b96" stroke-width="4"></circle></g>
+        </svg>
+        <div class="month" style="left: 200px">Aug</div>
+        <div class="month" style="left: 712px">Sep</div>
+        <div class="month" style="left: 1207px">Oct</div>
+        <img id="l-grok" class="launch" src="assets/grokbot.png" alt="Grok Bot" style="left: 222px; top: 360px; height: 56px" />
+        <img id="l-muse" class="launch" src="assets/meta_logo.png" alt="Meta Muse" style="left: 767px; top: 716px; height: 80px" />
+        <img id="l-claude" class="launch" src="assets/claude_code_wordmark.png" alt="Claude Code" style="left: 806px; top: 372px; height: 46px" />
+        <img id="l-dots" class="launch" src="assets/dots.png" alt="OpenAI dots" style="left: 1082px; top: 712px; height: 66px" />
+        <img id="l-gemini" class="launch" src="assets/gemini_wordmark_white.png" alt="Gemini" style="left: 1432px; top: 360px; height: 58px" />
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // the timeline draws Aug → Oct
+      tl.fromTo("#line", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.9, ease: "power1.inOut" }, 0.2);
+      tl.fromTo([".tick", ".month"], { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.5 }, 0.25);
+      // each launch lands as the line reaches its date
+      const hit = (marker, logo, at, fromY) => {
+        tl.fromTo(marker, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, at);
+        tl.fromTo(logo, { opacity: 0, y: fromY }, { opacity: logo === "#l-gemini" ? 0.6 : 1, y: 0, duration: 0.45, ease: "power3.out" }, at + 0.08);
+      };
+      hit("#m-grok", "#l-grok", 0.45, 16);
+      hit("#m-muse", "#l-muse", 1.2, -16);
+      hit("#m-claude", "#l-claude", 1.45, 16);
+      hit("#m-dots", "#l-dots", 1.8, -16);
+      // and the next one is coming
+      tl.fromTo(["#future", "#future-head"], { opacity: 0 }, { opacity: 1, duration: 0.4 }, 2.2);
+      tl.fromTo("#future", { strokeDashoffset: 0 }, { strokeDashoffset: -104, duration: 3.0, ease: "none" }, 2.2);
+      hit("#m-gemini", "#l-gemini", 2.6, 16);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

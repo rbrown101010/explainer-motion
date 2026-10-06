@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Launch video on blurred A-roll</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { position: absolute; inset: 0; }
+      .fill { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .inset { position: absolute; overflow: hidden; border: 1px solid var(--line); }
+
+      #bg { position: absolute; inset: 0; }
+      #frame { left: 200px; top: 112px; width: 1520px; height: 855px; border-radius: 28px; border-color: rgba(255,255,255,0.14); box-shadow: 0 28px 90px rgba(0,0,0,0.55); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+
+      <div id="scene">
+        <div id="bg"><video id="aroll-blur" class="clip fill" src="assets/riley_blur_bg.mp4" muted playsinline data-start="0" data-duration="6" data-track-index="0"></video></div>
+        <div id="frame" class="inset"><video id="launch" class="clip fill" src="assets/grok_primary.mp4" muted playsinline data-start="0" data-duration="6" data-track-index="1"></video></div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#frame", { opacity: 0, scale: 0.955 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 0.1);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

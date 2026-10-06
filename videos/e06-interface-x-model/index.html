@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>E6 · Interface × model</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 80px; }
+      .col { display: flex; flex-direction: column; align-items: center; gap: 36px; }
+      .panel { width: 480px; height: 480px; border-radius: 28px; background: var(--panel); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; }
+      .label { font-size: 40px; font-weight: 500; }
+      #times { font-size: 140px; font-weight: 400; color: var(--muted); margin-bottom: 84px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="scene">
+        <div class="col">
+          <div id="ui-panel" class="panel">
+            <svg width="260" height="200" viewBox="0 0 260 200" fill="none" aria-hidden="true">
+              <rect id="win" x="6" y="6" width="248" height="188" rx="18" pathLength="1" stroke-dasharray="1" stroke="#f4f3ef" stroke-width="7"></rect>
+              <path id="win-bar" d="M6 48 H254" pathLength="1" stroke-dasharray="1" stroke="#f4f3ef" stroke-width="7"></path>
+              <circle class="win-dot" cx="32" cy="27" r="6" fill="#f4f3ef"></circle><circle class="win-dot" cx="54" cy="27" r="6" fill="#f4f3ef"></circle><circle class="win-dot" cx="76" cy="27" r="6" fill="#f4f3ef"></circle>
+              <rect class="win-block" x="30" y="72" width="60" height="98" rx="8" fill="#f4f3ef" fill-opacity="0.18"></rect>
+              <rect class="win-block" x="108" y="72" width="122" height="40" rx="8" fill="#f4f3ef" fill-opacity="0.18"></rect>
+              <rect class="win-block" x="108" y="128" width="122" height="42" rx="8" fill="#f4f3ef" fill-opacity="0.18"></rect>
+            </svg>
+          </div>
+          <div id="ui-label" class="label">Interface</div>
+        </div>
+        <div id="times">×</div>
+        <div class="col">
+          <div id="model-panel" class="panel">
+            <svg width="220" height="220" viewBox="0 0 220 220" fill="none" aria-hidden="true">
+              <rect id="chip" x="50" y="50" width="120" height="120" rx="18" pathLength="1" stroke-dasharray="1" stroke="#f4f3ef" stroke-width="7"></rect>
+              <rect id="die" x="82" y="82" width="56" height="56" rx="8" fill="#f4f3ef" fill-opacity="0.85"></rect>
+              <path id="pins" d="M80 50 V20 M110 50 V20 M140 50 V20 M80 200 V170 M110 200 V170 M140 200 V170 M50 80 H20 M50 110 H20 M50 140 H20 M200 80 H170 M200 110 H170 M200 140 H170" stroke="#f4f3ef" stroke-width="7" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <div id="model-label" class="label">Model</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#ui-panel", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.2);
+      tl.fromTo(["#win", "#win-bar"], { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut", stagger: 0.15 }, 0.45);
+      tl.fromTo(".win-dot", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.06 }, 0.95);
+      tl.fromTo(".win-block", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", stagger: 0.1 }, 1.05);
+      tl.fromTo("#ui-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, 0.9);
+      tl.fromTo("#times", { opacity: 0, scale: 0.4, rotation: -45 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.55, ease: "back.out(2)" }, 1.55);
+      tl.fromTo("#model-panel", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 1.95);
+      tl.fromTo("#chip", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 2.2);
+      tl.fromTo("#pins", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 2.6);
+      tl.fromTo("#die", { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 2.75);
+      tl.fromTo("#model-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, 2.4);
+      tl.fromTo("#die", { fillOpacity: 0.85 }, { immediateRender: false, fillOpacity: 0.4, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.3);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

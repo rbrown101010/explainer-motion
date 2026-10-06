@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Website screenshot</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { position: absolute; inset: 0; }
+      .fill { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .inset { position: absolute; overflow: hidden; border: 1px solid var(--line); }
+
+      #scene { display: flex; align-items: center; justify-content: center; }
+      #browser { width: 1440px; border-radius: 24px; overflow: hidden; background: var(--panel); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 28px 80px rgba(0,0,0,0.5); display: flex; flex-direction: column; }
+      .chrome { height: 56px; display: flex; align-items: center; gap: 10px; padding: 0 22px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .dot { width: 13px; height: 13px; border-radius: 50%; background: #5a5a57; }
+      .url { margin: 0 auto; padding: 8px 28px; border-radius: 999px; background: var(--ground); font-size: 20px; color: #c9c8c3; }
+      .spacer { width: 63px; }
+      .page { width: 1440px; height: 900px; overflow: hidden; }
+      #shot { display: block; width: 1440px; height: 900px; object-fit: cover; object-position: top; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+
+      <div id="scene">
+        <div id="browser">
+          <div class="chrome"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url">agentnative.inc</div><div class="spacer"></div></div>
+          <div class="page"><img id="shot" src="assets/agentnative_site.jpg" alt="agentnative.inc homepage" /></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#browser", { opacity: 0, y: 40, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 0.15);
+      tl.fromTo("#shot", { scale: 1 }, { scale: 1.05, duration: 5.2, ease: "sine.inOut", transformOrigin: "50% 30%" }, 0.3);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

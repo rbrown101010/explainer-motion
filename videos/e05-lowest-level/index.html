@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>E5 · Learn the lowest level</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.08); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { position: absolute; inset: 0; }
+      .slab { position: absolute; left: 340px; width: 1340px; border-radius: 28px; background: var(--panel); border: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; padding: 0 64px; }
+      .slab.focus { border: 2px solid var(--focus); }
+      .label { font-size: 40px; font-weight: 500; }
+      .muted { color: var(--muted); }
+      .logos { display: flex; align-items: center; gap: 64px; }
+      .logos img { display: block; width: auto; }
+      #spine { position: absolute; left: 230px; top: 150px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="scene">
+        <svg id="spine" width="80" height="800" viewBox="0 0 80 800" fill="none" aria-hidden="true">
+          <path id="spine-path" d="M40 10 V780 M22 756 L40 782 L58 756" pathLength="1" stroke-dasharray="1" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div id="slab-you" class="slab" style="top: 150px; height: 170px">
+          <div class="label muted">You</div>
+          <svg width="66" height="72" viewBox="0 0 96 104" fill="none" aria-hidden="true"><circle cx="48" cy="30" r="22" stroke="#9c9b96" stroke-width="8"></circle><path d="M8 100 C8 74 26 60 48 60 C70 60 88 74 88 100" stroke="#9c9b96" stroke-width="8" stroke-linecap="round"></path></svg>
+        </div>
+        <div id="slab-agent" class="slab" style="top: 360px; height: 230px">
+          <div class="label muted">Agent</div>
+          <div class="logos">
+            <img class="agent-logo" src="assets/dots.png" alt="dots" style="height: 74px; opacity: 0.85" />
+            <img class="agent-logo" src="assets/grokbot.png" alt="Grok Bot" style="height: 58px; opacity: 0.85" />
+          </div>
+        </div>
+        <div id="slab-code" class="slab focus" style="top: 630px; height: 300px">
+          <div class="label" style="font-size: 48px">Code</div>
+          <div class="logos" style="gap: 72px">
+            <img class="code-logo" src="assets/claude_code.png" alt="Claude Code" style="height: 96px; image-rendering: pixelated" />
+            <img class="code-logo" src="assets/codex_mono.png" alt="Codex" style="height: 132px" />
+            <img class="code-logo" src="assets/cursor.png" alt="Cursor" style="height: 132px" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#slab-you", { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.2);
+      tl.fromTo("#slab-agent", { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.55);
+      tl.fromTo(".agent-logo", { opacity: 0, scale: 0.8 }, { opacity: 0.85, scale: 1, duration: 0.4, ease: "back.out(1.8)", stagger: 0.12 }, 0.85);
+      // the arrow travels down the stack to the lowest level
+      tl.fromTo("#spine-path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut" }, 1.2);
+      tl.fromTo("#slab-code", { opacity: 0, y: -24, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 1.75);
+      tl.fromTo(".code-logo", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)", stagger: 0.14 }, 2.15);
+      tl.fromTo("#slab-code", { boxShadow: "0 0 0 0 rgba(240,122,90,0)" }, { immediateRender: false, boxShadow: "0 0 0 10px rgba(240,122,90,0.18)", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 2.9);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

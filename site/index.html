@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explainer Motion · Riley Brown</title>
+<meta name="description" content="Motion explainers and B-roll templates for Riley Brown's videos, with the notes, prompts and code behind them.">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  :root { --text: #111111; --muted: #6b6b6b; --faint: #9a9a9a; --line: #ececec; --chip: #e5e5e5; --soft: #f4f4f3; --card: #212120; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #ffffff; color: var(--text); font-family: "Geist", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+  header.top { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-size: 15px; font-weight: 500; letter-spacing: -0.2px; }
+  .nav { display: flex; align-items: center; gap: 22px; font-size: 14px; color: #444; }
+  .nav a:hover { color: var(--text); }
+  .nav svg { width: 13px; height: 13px; vertical-align: -1px; margin-right: 5px; }
+  .hero { padding: 40px 0 28px; }
+  .hero h1 { margin: 0 0 10px; font-size: 30px; font-weight: 500; letter-spacing: -0.75px; }
+  .hero p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; max-width: 720px; }
+  .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0 22px; flex-wrap: wrap; }
+  .filters { display: flex; align-items: center; gap: 8px; color: var(--faint); font-size: 14px; flex-wrap: wrap; }
+  .chip { border: 1px solid var(--chip); border-radius: 999px; padding: 6px 12px; font-size: 13px; color: #333; background: #fff; }
+  .chip[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: #fff; }
+  .toggle { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: #333; }
+  .toggle svg { width: 12px; height: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 22px; padding-bottom: 80px; }
+  @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+  .card { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+  .thumb { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: var(--card); }
+  .thumb video { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+  .card:hover .thumb video { transform: scale(1.015); }
+  .card:focus-visible .thumb { outline: 2px solid var(--text); outline-offset: 3px; }
+  .by { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .who { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #444; min-width: 0; }
+  .avatar { width: 22px; height: 22px; border-radius: 50%; background: var(--card); color: #f4f3ef; font-size: 9px; font-weight: 600; display: grid; place-items: center; flex: none; }
+  .title-sm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tag { border: 1px solid var(--chip); border-radius: 6px; padding: 2px 8px; font-size: 11px; color: #555; flex: none; }
+  /* modal */
+  .overlay { position: fixed; inset: 0; background: rgba(20,20,20,0.38); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; padding: 28px; z-index: 50; }
+  .overlay.open { display: flex; }
+  .modal { width: min(1180px, 100%); height: min(760px, calc(100vh - 56px)); background: #fff; border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); box-shadow: 0 30px 80px rgba(0,0,0,0.25); }
+  .stagebox { display: flex; align-items: center; justify-content: center; padding: 28px; background: #fff; }
+  .stagebox video { width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; background: var(--card); display: block; }
+  .side { border-left: 1px solid var(--line); padding: 24px 24px 28px; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; }
+  .side-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .side-who { display: flex; align-items: center; gap: 10px; }
+  .side-who .avatar { width: 30px; height: 30px; font-size: 11px; }
+  .side-who b { display: block; font-size: 14px; font-weight: 500; }
+  .side-who span { display: block; font-size: 13px; color: var(--muted); }
+  .side-actions { display: flex; align-items: center; gap: 14px; font-size: 13px; color: #444; }
+  .close { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 8px; }
+  .close:hover { background: var(--soft); }
+  .side h2 { margin: 2px 0 0; font-size: 19px; font-weight: 500; letter-spacing: -0.3px; }
+  .block { display: flex; flex-direction: column; gap: 8px; }
+  .block-head { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--muted); }
+  .copy { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #444; padding: 4px 6px; border-radius: 6px; }
+  .copy:hover { background: var(--soft); }
+  .copy svg { width: 12px; height: 12px; }
+  .box { background: var(--soft); border-radius: 10px; padding: 12px 14px; font-size: 14px; line-height: 1.55; color: #222; white-space: pre-wrap; }
+  pre.box { font-family: "Geist Mono", ui-monospace, monospace; font-size: 11.5px; line-height: 1.5; max-height: 260px; overflow: auto; white-space: pre; margin: 0; }
+  .agent-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: var(--text); color: #fff; border-radius: 999px; padding: 9px 16px; font-size: 13px; font-weight: 500; }
+  .meta { border-top: 1px solid var(--line); padding-top: 16px; display: grid; grid-template-columns: 96px 1fr; gap: 9px 12px; font-size: 13px; }
+  .meta dt { color: var(--muted); }
+  .meta dd { margin: 0; }
+  .meta a { text-decoration: underline; text-underline-offset: 2px; text-decoration-color: #ccc; }
+  @media (max-width: 860px) { .modal { grid-template-columns: 1fr; height: calc(100vh - 32px); overflow-y: auto; } .side { border-left: 0; border-top: 1px solid var(--line); overflow: visible; } .overlay { padding: 16px; } }
+  .toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px); background: var(--text); color: #fff; font-size: 13px; padding: 9px 14px; border-radius: 999px; opacity: 0; transition: all .2s ease; pointer-events: none; z-index: 60; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  .searchbar { position: relative; display: flex; align-items: center; height: 58px; border: 1px solid #e3e3e1; border-radius: 16px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04); transition: border-color .15s ease, box-shadow .15s ease; }
+  .searchbar:focus-within { border-color: #111; box-shadow: 0 0 0 4px rgba(17,17,17,0.07), 0 8px 24px rgba(0,0,0,0.05); }
+  .searchbar > svg { position: absolute; left: 20px; width: 20px; height: 20px; color: #8a8a88; pointer-events: none; }
+  .searchbar input { flex: 1; height: 100%; border: 0; outline: 0; background: transparent; font: 400 17px/1 "Geist", system-ui, sans-serif; color: var(--text); padding: 0 12px 0 54px; border-radius: 16px; }
+  .searchbar input::placeholder { color: #a3a3a0; }
+  .searchbar input::-webkit-search-cancel-button { display: none; }
+  .search-side { display: flex; align-items: center; gap: 10px; padding-right: 14px; font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .kbd { border: 1px solid #e3e3e1; border-bottom-width: 2px; border-radius: 6px; padding: 1px 7px; font: 500 12px/1.4 "Geist Mono", ui-monospace, monospace; color: #666; background: #fafaf9; }
+  .clear { display: none; width: 26px; height: 26px; border-radius: 8px; place-items: center; color: #666; }
+  .clear:hover { background: var(--soft); }
+  .has-query .clear { display: grid; }
+  .has-query .kbd { display: none; }
+  .subbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 2px 22px; font-size: 13px; color: var(--muted); min-height: 20px; }
+  .empty { grid-column: 1 / -1; padding: 60px 0; text-align: center; color: var(--muted); font-size: 15px; }
+  .empty b { color: var(--text); font-weight: 500; }
+  .foot-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .foot-tags .chip { cursor: pointer; }
+  .foot-cols { display: flex; flex-direction: column; gap: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/">Explainer Motion</a>
+    <nav class="nav">
+      <a href="/style.md">Style guide</a>
+      <a href="/llms.txt">llms.txt</a>
+      <a href="https://github.com/rbrown101010/explainer-motion" rel="noopener">GitHub</a>
+      <a href="https://x.com/rileybrown" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.3L18.9 2Zm-1.2 18h1.9L7.4 3.9H5.4L17.7 20Z"/></svg>@rileybrown</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h1>Explainer Motion</h1>
+    <p>Motion graphics for Riley Brown's videos: topic explainers plus B-roll templates for text cards, launch videos, logos, screens and name labels. Each one has the notes, prompt and code behind it.</p>
+  </section>
+  <div class="searchbar" id="searchbar">
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.2" stroke="currentColor" stroke-width="1.7"/><path d="M13.6 13.6 L17.5 17.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+    <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search motion graphics — try “name label”, “logo”, “vs”, “launch video”, “timeline”" aria-label="Search motion graphics">
+    <div class="search-side"><button class="clear" id="clear" aria-label="Clear search"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 2 L10 10 M10 2 L2 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><span class="kbd">/</span></div>
+  </div>
+  <div class="subbar"><span id="count"></span><button class="toggle" id="pause" aria-pressed="false"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx="0.6"/><rect x="7.4" y="1.5" width="2.6" height="9" rx="0.6"/></svg><span>Pause previews</span></button></div>
+  <main class="grid" id="grid" aria-live="polite"></main>
+  <footer>
+    <div class="foot-cols">
+      <div class="foot-tags" id="foot-tags"><span>Tags:</span></div>
+      <span>Agents: start at <a href="/llms.txt">/llms.txt</a>, <a href="/data/explainers.json">/data/explainers.json</a> and <a href="/style.md">/style.md</a>.</span>
+    </div>
+    <span><a href="https://github.com/rbrown101010/explainer-motion" rel="noopener">Source on GitHub</a></span>
+  </footer>
+</div>
+
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="stagebox"><video id="m-video" muted loop playsinline controls></video></div>
+    <aside class="side">
+      <div class="side-head">
+        <div class="side-who"><div class="avatar">RB</div><div><b>Riley Brown</b><span>@rileybrown</span></div></div>
+        <div class="side-actions">
+          <a id="m-open" href="#" target="_blank" rel="noopener">Open live ↗</a>
+          <button class="close" id="m-close" aria-label="Close"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        </div>
+      </div>
+      <h2 id="m-title"></h2>
+      <button class="agent-btn" id="m-agent"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>Copy agent brief</button>
+      <div class="block">
+        <div class="block-head"><span>Notes</span><button class="copy" data-copy="notes"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" stroke="currentColor" stroke-width="1.4"/></svg>Copy</button></div>
+        <div class="box" id="m-notes"></div>
+      </div>
+      <div class="block">
+        <div class="block-head"><span>Prompt</span><button class="copy" data-copy="prompt"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" stroke="currentColor" stroke-width="1.4"/></svg>Copy</button></div>
+        <div class="box" id="m-prompt"></div>
+      </div>
+      <div class="block">
+        <div class="block-head"><span>Code · HyperFrames composition</span><button class="copy" data-copy="code"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" stroke="currentColor" stroke-width="1.4"/></svg>Copy</button></div>
+        <pre class="box" id="m-code">Loading…</pre>
+      </div>
+      <dl class="meta">
+        <dt>Topic</dt><dd id="m-topic"></dd>
+        <dt>Tags</dt><dd id="m-tags"></dd>
+        <dt>Keywords</dt><dd id="m-keywords"></dd>
+        <dt>Duration</dt><dd>6s · 1920×1080 · 30 fps</dd>
+        <dt>Built with</dt><dd>HyperFrames · GSAP · Geist</dd>
+        <dt>Files</dt><dd id="m-files"></dd>
+      </dl>
+    </aside>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+let DATA = [], current = null, codeCache = {}, paused = false;
+const $ = (id) => document.getElementById(id);
+const toast = (msg) => { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("show"), 1400); };
+const copy = async (text, label) => { try { await navigator.clipboard.writeText(text); toast(label + " copied"); } catch (e) { toast("Copy failed"); } };
+const code = async (ex) => { if (!codeCache[ex.slug]) codeCache[ex.slug] = await fetch("/source/" + ex.slug + "/index.html").then(r => r.text()); return codeCache[ex.slug]; };
+
+const HERO = 3.6; // the frame where every element is on screen
+const showHero = (v) => { if (v.readyState >= 1) v.currentTime = HERO; else v.addEventListener("loadedmetadata", () => { v.currentTime = HERO; }, { once: true }); };
+const onScreen = new Set();
+const io = new IntersectionObserver((entries) => entries.forEach(({ target: v, isIntersecting }) => {
+  if (isIntersecting) onScreen.add(v); else onScreen.delete(v);
+  if (paused) return;
+  if (isIntersecting) v.play().catch(() => showHero(v)); else v.pause();
+}), { threshold: 0.25 });
+// browsers refuse autoplay in a background tab; resume the visible cards once the tab is shown
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible" && !paused) onScreen.forEach(v => { if (v.isConnected) v.play().catch(() => {}); });
+});
+
+function makeVideo(slug) {
+  const v = document.createElement("video");
+  v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
+  v.setAttribute("muted", ""); v.setAttribute("playsinline", ""); v.preload = "auto";
+  v.poster = "/media/" + slug + ".jpg"; v.src = "/media/" + slug + ".mp4";
+  if (paused) showHero(v);
+  io.observe(v);
+  return v;
+}
+
+// ---------- smart search ----------
+const SYN = [
+  ["vs", "versus", "compare", "comparison", "against", "side by side", "split"],
+  ["logo", "logos", "brand", "wordmark", "mark", "company", "companies"],
+  ["name", "lower third", "lowerthird", "label", "nametag", "name tag", "intro", "introduction", "speaker", "person"],
+  ["video", "footage", "clip", "broll", "b-roll", "launch", "film"],
+  ["tweet", "post", "x", "twitter", "social", "announcement"],
+  ["chart", "graph", "benchmark", "stats", "data", "numbers", "table", "scores"],
+  ["website", "site", "web", "browser", "url", "page", "homepage"],
+  ["text", "words", "title", "card", "statement", "quote", "line"],
+  ["agent", "agents", "bot", "bots", "assistant"],
+  ["timeline", "history", "dates", "race", "launches"],
+  ["phone", "mobile", "voice", "call", "airpods"],
+  ["flow", "arrow", "delegate", "delegation", "handoff", "hands off", "pipeline"],
+  ["blur", "blurred", "background"],
+  ["me", "myself", "riley", "face", "camera", "a-roll", "aroll", "talking head"],
+  ["hot take", "opinion", "take", "contrarian", "claim"],
+  ["tools", "integrations", "apps", "connectors", "email", "gmail", "slack"],
+  ["local", "computer", "laptop", "desktop", "machine"],
+  ["cloud", "remote", "server", "online"],
+];
+const norm = (t) => t.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9.\s-]/g, " ").replace(/\s+/g, " ").trim();
+const stem = (w) => w.length > 4 ? w.replace(/(ings|ing|ers|ed|es|s)$/, "") : w;
+const synOf = (t) => { const out = new Set([t]); SYN.forEach(g => { if (g.includes(t) || g.some(x => stem(x) === stem(t))) g.forEach(x => out.add(x)); }); return [...out]; };
+const lev1 = (a, b) => { // true when edit distance <= 1
+  if (Math.abs(a.length - b.length) > 1) return false;
+  let i = 0, j = 0, e = 0;
+  while (i < a.length && j < b.length) { if (a[i] === b[j]) { i++; j++; continue; } if (++e > 1) return false; if (a.length > b.length) i++; else if (b.length > a.length) j++; else { i++; j++; } }
+  return e + (a.length - i) + (b.length - j) <= 1;
+};
+const FIELDS = [["title", 6], ["keywords", 5], ["tags", 4], ["topic", 3], ["kind", 2], ["notes", 1], ["prompt", 0.5]];
+let INDEX = [];
+function buildIndex() {
+  INDEX = DATA.map(ex => {
+    const f = {}; FIELDS.forEach(([k]) => { const v = Array.isArray(ex[k]) ? ex[k].join(" , ") : (ex[k] || ""); const n = norm(v); f[k] = { text: n, words: n.split(" ").map(stem) }; });
+    return { ex, f };
+  });
+}
+function termScore(entry, term) {
+  const variants = synOf(term); let best = 0;
+  for (const [k, w] of FIELDS) {
+    const { text, words } = entry.f[k];
+    for (const v of variants) {
+      const sv = stem(v), syn = v !== term ? 0.8 : 1;
+      if (v.includes(" ")) { if (text.includes(v)) best = Math.max(best, w * 3 * syn); continue; }
+      for (const wd of words) {
+        if (wd === sv) best = Math.max(best, w * 3 * syn);
+        else if (sv.length >= 2 && wd.startsWith(sv)) best = Math.max(best, w * 2 * syn);
+        else if (sv.length >= 4 && lev1(wd, sv)) best = Math.max(best, w * 1.2 * syn);
+      }
+      if (sv.length >= 3 && text.includes(sv)) best = Math.max(best, w * 1 * syn);
+    }
+  }
+  return best;
+}
+function search(raw) {
+  let q = norm(raw), tagFilter = null;
+  const tm = raw.match(/tag:\s*([\w-]+)/i);
+  if (tm) { tagFilter = tm[1].toLowerCase(); q = norm(raw.replace(tm[0], "")); }
+  let pool = INDEX.filter(e => !tagFilter || (e.ex.tags || []).some(t => t.toLowerCase() === tagFilter));
+  if (!q) return pool.map(e => e.ex);
+  // keep known multi-word phrases together (e.g. "lower third", "launch video")
+  const phrases = SYN.flat().filter(p => p.includes(" ") && q.includes(p));
+  let rest = q; phrases.forEach(p => { rest = rest.replace(p, " "); });
+  const terms = [...phrases, ...rest.split(" ").filter(t => t && !["a", "an", "the", "of", "for", "with", "and", "to", "on", "in", "my"].includes(t))];
+  if (!terms.length) return pool.map(e => e.ex);
+  const scored = pool.map(e => {
+    const per = terms.map(t => termScore(e, t));
+    let s = per.reduce((a, b) => a + b, 0);
+    if (e.f.title.text.includes(q)) s += 12; else if (e.f.keywords.text.includes(q)) s += 8;
+    return { ex: e.ex, s, all: per.every(x => x > 0) };
+  }).filter(r => r.s > 0);
+  const strict = scored.filter(r => r.all);
+  const ranked = (strict.length ? strict : scored).sort((a, b) => b.s - a.s);
+  const top = ranked.length ? ranked[0].s : 0;
+  return ranked.filter(r => r.s >= top * 0.35).map(r => r.ex);
+}
+
+const CARDS = new Map();
+function buildCards() {
+  DATA.forEach(ex => {
+    const b = document.createElement("button");
+    b.className = "card"; b.setAttribute("aria-label", "Open " + ex.title);
+    b.innerHTML = '<div class="thumb"></div><div class="by"><div class="who"><div class="avatar">RB</div><span class="title-sm"></span></div><span class="tag"></span></div>';
+    b.querySelector(".thumb").appendChild(makeVideo(ex.slug));
+    b.querySelector(".title-sm").textContent = ex.title;
+    b.querySelector(".tag").textContent = (ex.tags || [])[0] || "";
+    b.addEventListener("click", () => { location.hash = ex.id; });
+    CARDS.set(ex.id, b);
+  });
+}
+function applySearch() {
+  const raw = $("q").value; $("searchbar").classList.toggle("has-query", raw.length > 0);
+  const results = search(raw), grid = $("grid");
+  grid.querySelectorAll(".empty").forEach(n => n.remove());
+  const keep = new Set(results.map(r => r.id));
+  CARDS.forEach((card, id) => { if (!keep.has(id)) { card.remove(); const v = card.querySelector("video"); if (v) v.pause(); } });
+  results.forEach(r => grid.appendChild(CARDS.get(r.id)));
+  $("count").textContent = raw.trim() ? results.length + (results.length === 1 ? " result" : " results") : DATA.length + " motion graphics";
+  if (!results.length) { const e = document.createElement("div"); e.className = "empty"; e.innerHTML = 'No matches for <b></b>. Try “logo”, “name label”, “video” or “compare”.'; e.querySelector("b").textContent = raw; grid.appendChild(e); }
+}
+function buildFooterTags() {
+  const counts = {}; DATA.forEach(ex => (ex.tags || []).forEach(t => counts[t] = (counts[t] || 0) + 1));
+  const box = $("foot-tags");
+  Object.entries(counts).forEach(([t, n]) => {
+    const c = document.createElement("button"); c.className = "chip"; c.textContent = t + " · " + n;
+    c.addEventListener("click", () => { $("q").value = "tag:" + t; applySearch(); window.scrollTo({ top: 0, behavior: "smooth" }); $("q").focus(); });
+    box.appendChild(c);
+  });
+}
+
+async function openModal(id) {
+  const ex = DATA.find(e => e.id === id); if (!ex) return closeModal();
+  current = ex;
+  $("m-title").textContent = ex.title;
+  $("m-notes").textContent = ex.notes;
+  $("m-prompt").textContent = ex.prompt;
+  $("m-topic").textContent = ex.topic;
+  $("m-tags").textContent = (ex.tags || []).join(", ");
+  $("m-keywords").textContent = (ex.keywords || []).join(", ");
+  $("m-open").href = "/play.html?id=" + ex.slug;
+  $("m-files").innerHTML = '<a href="/media/' + ex.slug + '.mp4" download>MP4</a> · <a href="/source/' + ex.slug + '/index.html" target="_blank" rel="noopener">index.html</a> · <a href="/notes/' + ex.slug + '.md">notes.md</a>';
+  const v = $("m-video"); v.muted = true; v.src = "/media/" + ex.slug + ".mp4"; v.poster = "/media/" + ex.slug + ".jpg"; v.play().catch(() => showHero(v));
+  $("overlay").classList.add("open"); $("overlay").setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
+  $("m-code").textContent = "Loading…";
+  $("m-code").textContent = await code(ex);
+}
+function closeModal() {
+  $("overlay").classList.remove("open"); $("overlay").setAttribute("aria-hidden", "true"); document.body.style.overflow = "";
+  $("m-video").pause(); current = null;
+  if (location.hash) history.replaceState(null, "", location.pathname);
+}
+
+document.querySelectorAll("[data-copy]").forEach(btn => btn.addEventListener("click", async () => {
+  if (!current) return;
+  const k = btn.dataset.copy;
+  if (k === "code") return copy(await code(current), "Code");
+  copy(current[k], k === "notes" ? "Notes" : "Prompt");
+}));
+$("m-agent").addEventListener("click", async () => {
+  if (!current) return;
+  const brief = "# " + current.title + "\n\nTopic: " + current.topic + "\n\n## Notes\n" + current.notes + "\n\n## Prompt\n" + current.prompt +
+    "\n\n## Style guide\n" + location.origin + "/style.md\n\n## Assets\nLogos and the Geist font live next to the composition: " + location.origin + "/source/" + current.slug + "/assets/\n\n## HyperFrames composition (index.html)\n```html\n" + await code(current) + "\n```\n";
+  copy(brief, "Agent brief");
+});
+$("m-close").addEventListener("click", closeModal);
+$("overlay").addEventListener("click", (e) => { if (e.target === $("overlay")) closeModal(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && current) closeModal(); });
+window.addEventListener("hashchange", () => { const id = location.hash.slice(1); id ? openModal(id) : closeModal(); });
+$("pause").addEventListener("click", () => {
+  paused = !paused; $("pause").setAttribute("aria-pressed", String(paused));
+  $("pause").querySelector("span").textContent = paused ? "Play previews" : "Pause previews";
+  document.querySelectorAll(".thumb video").forEach(v => { if (paused) { v.pause(); showHero(v); } else v.play().catch(() => {}); });
+});
+let qTimer;
+$("q").addEventListener("input", () => { clearTimeout(qTimer); qTimer = setTimeout(applySearch, 60); });
+$("q").addEventListener("keydown", (e) => { if (e.key === "Escape") { $("q").value = ""; applySearch(); $("q").blur(); } });
+$("clear").addEventListener("click", () => { $("q").value = ""; applySearch(); $("q").focus(); });
+document.addEventListener("keydown", (e) => {
+  const typing = /input|textarea/i.test(document.activeElement.tagName);
+  if ((e.key === "/" && !typing) || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k")) { e.preventDefault(); $("q").focus(); $("q").select(); }
+});
+fetch("/data/explainers.json").then(r => r.json()).then(d => {
+  DATA = d.explainers; buildIndex(); buildCards(); buildFooterTags();
+  const initial = new URLSearchParams(location.search).get("q"); if (initial) $("q").value = initial;
+  applySearch();
+  if (location.hash) openModal(location.hash.slice(1));
+});
+</script>
+</body>
+</html>

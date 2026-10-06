@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>E8 · Delegate from your phone</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 56px; }
+      .col { display: flex; flex-direction: column; align-items: center; gap: 36px; }
+      .panel { position: relative; width: 400px; height: 440px; border-radius: 28px; background: var(--panel); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; }
+      .panel.focus { border: 2px solid var(--focus); }
+      .label { font-size: 40px; font-weight: 500; }
+      .muted { color: var(--muted); }
+      .arrow { display: block; margin-bottom: 76px; }
+      #codex { position: absolute; left: 160px; top: 160px; display: block; height: 80px; width: auto; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="scene">
+        <div class="col">
+          <div id="phone-panel" class="panel">
+            <svg width="150" height="260" viewBox="0 0 150 260" fill="none" aria-hidden="true">
+              <rect x="6" y="6" width="138" height="248" rx="26" stroke="#9c9b96" stroke-width="7"></rect>
+              <path class="wave" d="M45 120 V140" stroke="#9c9b96" stroke-width="7" stroke-linecap="round"></path>
+              <path class="wave" d="M60 106 V154" stroke="#9c9b96" stroke-width="7" stroke-linecap="round"></path>
+              <path class="wave" d="M75 96 V164" stroke="#9c9b96" stroke-width="7" stroke-linecap="round"></path>
+              <path class="wave" d="M90 110 V150" stroke="#9c9b96" stroke-width="7" stroke-linecap="round"></path>
+              <path class="wave" d="M105 122 V138" stroke="#9c9b96" stroke-width="7" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <div id="phone-label" class="label muted">Voice</div>
+        </div>
+        <svg class="arrow" width="150" height="44" viewBox="0 0 150 44" fill="none" aria-hidden="true"><path id="arrow-1" d="M4 22 H140 M118 6 L140 22 L118 38" pathLength="1" stroke-dasharray="1" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div class="col">
+          <div id="agent-panel" class="panel focus">
+            <img id="dots" src="assets/dots.png" alt="dots" style="display: block; height: 104px; width: auto" />
+          </div>
+          <div id="agent-label" class="label">Agent</div>
+        </div>
+        <svg class="arrow" width="150" height="44" viewBox="0 0 150 44" fill="none" aria-hidden="true"><path id="arrow-2" d="M4 22 H140 M118 6 L140 22 L118 38" pathLength="1" stroke-dasharray="1" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div class="col">
+          <div id="computer-panel" class="panel">
+            <svg width="280" height="210" viewBox="0 0 280 210" fill="none" aria-hidden="true">
+              <rect id="monitor" x="8" y="8" width="264" height="160" rx="16" pathLength="1" stroke-dasharray="1" stroke="#9c9b96" stroke-width="7"></rect>
+              <path id="monitor-stand" d="M140 168 V196 M92 198 H188" stroke="#9c9b96" stroke-width="7" stroke-linecap="round"></path>
+            </svg>
+            <img id="codex" src="assets/codex_mono.png" alt="Codex" />
+          </div>
+          <div id="computer-label" class="label muted">Computer</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // you talk into your phone
+      tl.fromTo("#phone-panel", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.2);
+      tl.fromTo("#phone-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, 0.45);
+      tl.fromTo(".wave", { scaleY: 0.3, transformOrigin: "50% 50%" }, { scaleY: 1, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 15, stagger: { each: 0.06, from: "center" } }, 0.55);
+      // your agent takes it
+      tl.fromTo("#arrow-1", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, 1.2);
+      tl.fromTo("#agent-panel", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 1.5);
+      tl.fromTo("#dots", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.7);
+      tl.fromTo("#agent-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, 1.8);
+      // and works on your computer
+      tl.fromTo("#arrow-2", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, 2.3);
+      tl.fromTo("#computer-panel", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 2.6);
+      tl.fromTo("#monitor", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 2.8);
+      tl.fromTo("#monitor-stand", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 3.2);
+      tl.fromTo("#codex", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 3.35);
+      tl.fromTo("#computer-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, 2.9);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

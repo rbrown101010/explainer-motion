@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Official post card</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #scene { position: absolute; inset: 0; }
+      .fill { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .inset { position: absolute; overflow: hidden; border: 1px solid var(--line); }
+
+      #scene { display: flex; align-items: center; justify-content: center; }
+      #post { width: 1120px; padding: 56px 64px; border-radius: 28px; background: var(--panel); border: 1px solid var(--line); box-shadow: 0 28px 80px rgba(0,0,0,0.45); display: flex; flex-direction: column; gap: 32px; }
+      .head { display: flex; align-items: center; gap: 22px; }
+      .avatar { width: 84px; height: 84px; border-radius: 50%; background: var(--text); display: flex; align-items: center; justify-content: center; }
+      .avatar img { display: block; width: 50px; height: 50px; }
+      .name { font-size: 34px; font-weight: 600; }
+      .handle { font-size: 22px; color: var(--muted); margin-top: 4px; }
+      #text { font-size: 40px; font-weight: 400; line-height: 1.32; letter-spacing: -0.01em; }
+      #media { position: relative; width: 100%; height: 420px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+
+      <div id="scene">
+        <div id="post">
+          <div id="head" class="head"><div class="avatar"><img src="assets/claude_symbol.png" alt="" /></div><div><div class="name">Claude</div><div class="handle">@claudeai</div></div></div>
+          <div id="text">Projects now run from one conversation, starting in Claude Code. You describe what needs doing, and Claude directs parallel threads that keep working after you close your laptop.</div>
+          <div id="media"><video id="post-video" class="clip fill" src="assets/claude_projects.mp4" muted playsinline data-start="0" data-duration="6" data-track-index="1"></video></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#post", { opacity: 0, y: 40, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 0.15);
+      tl.fromTo("#head", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.45);
+      tl.fromTo("#text", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.65);
+      tl.fromTo("#media", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 1.0);
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

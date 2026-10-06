@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>E1 · Chatbot to agent with a computer</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --ground: #212120; --panel: #2b2b29; --text: #f4f3ef; --muted: #9c9b96; --accent: #f07a5a; --line: rgba(255,255,255,0.10); --focus: rgba(244,243,239,0.55); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Geist", ui-sans-serif, system-ui, sans-serif; color: var(--text); }
+      #stage { position: absolute; inset: 0; }
+      #scene { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 72px; }
+      .col { display: flex; flex-direction: column; align-items: center; gap: 36px; }
+      .panel { width: 500px; height: 500px; border-radius: 28px; background: var(--panel); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 44px; }
+      .panel.focus { border: 2px solid var(--focus); }
+      .label { font-size: 40px; font-weight: 500; }
+      .muted { color: var(--muted); }
+      .apps { display: flex; align-items: center; gap: 30px; }
+      .apps img { display: block; height: 50px; width: auto; }
+      .arrow { display: block; margin-bottom: 76px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="stage">
+        <div id="scene">
+          <div class="col">
+            <div id="chat-panel" class="panel">
+              <svg width="260" height="210" viewBox="0 0 260 210" fill="none" aria-hidden="true">
+                <path id="bubble-a" d="M24 20 H176 a16 16 0 0 1 16 16 V96 a16 16 0 0 1 -16 16 H84 L52 140 V112 H24 a16 16 0 0 1 -16 -16 V36 a16 16 0 0 1 16 -16 Z" stroke="#9c9b96" stroke-width="7" stroke-linejoin="round"></path>
+                <path id="bubble-b" d="M108 132 H236 a16 16 0 0 1 16 16 V176 a16 16 0 0 1 -16 16 H222 V206 L200 192 H108 a16 16 0 0 1 -16 -16 V148 a16 16 0 0 1 16 -16 Z" stroke="#9c9b96" stroke-width="7" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div id="chat-label" class="label muted">Chatbot</div>
+          </div>
+          <svg class="arrow" width="170" height="44" viewBox="0 0 170 44" fill="none" aria-hidden="true">
+            <path id="arrow-path" d="M4 22 H160 M138 6 L160 22 L138 38" pathLength="1" stroke-dasharray="1" stroke="#f07a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <div class="col">
+            <div id="agent-panel" class="panel focus">
+              <svg width="250" height="190" viewBox="0 0 250 190" fill="none" aria-hidden="true">
+                <rect id="screen" x="8" y="8" width="234" height="146" rx="16" pathLength="1" stroke-dasharray="1" stroke="#f4f3ef" stroke-width="7"></rect>
+                <path id="stand" d="M125 154 V180 M80 182 H170" pathLength="1" stroke-dasharray="1" stroke="#f4f3ef" stroke-width="7" stroke-linecap="round"></path>
+                <path id="prompt" d="M60 60 L84 80 L60 100" stroke="#f4f3ef" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path id="caret" d="M100 104 H140" stroke="#f4f3ef" stroke-width="7" stroke-linecap="round"></path>
+              </svg>
+              <div class="apps">
+                <img id="app-1" src="assets/gmail.png" alt="Gmail" style="height: 44px" />
+                <img id="app-2" src="assets/slack.png" alt="Slack" />
+                <img id="app-3" src="assets/googlecalendar.png" alt="Google Calendar" />
+                <img id="app-4" src="assets/notion.png" alt="Notion" />
+              </div>
+            </div>
+            <div id="agent-label" class="label">Agent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // 1 · the chatbot arrives
+      tl.fromTo("#chat-panel", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 0.2);
+      tl.fromTo("#bubble-a", { opacity: 0, scale: 0.8, transformOrigin: "30% 80%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" }, 0.5);
+      tl.fromTo("#bubble-b", { opacity: 0, scale: 0.8, transformOrigin: "70% 80%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" }, 0.75);
+      tl.fromTo("#chat-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.6);
+      // 2 · the arrow draws on
+      tl.fromTo("#arrow-path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, 1.35);
+      // 3 · it gets its own computer
+      tl.fromTo("#agent-panel", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 1.75);
+      tl.fromTo(["#screen", "#stand"], { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut", stagger: 0.15 }, 1.95);
+      tl.fromTo(["#prompt", "#caret"], { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.1 }, 2.55);
+      tl.fromTo("#caret", { opacity: 1 }, { immediateRender: false, opacity: 0.15, duration: 0.4, ease: "steps(1)", yoyo: true, repeat: 5 }, 3.0);
+      tl.fromTo("#agent-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 2.2);
+      // 4 · and the apps it can use
+      tl.fromTo(["#app-1", "#app-2", "#app-3", "#app-4"], { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)", stagger: 0.12 }, 2.75);
+      // 5 · clean exit so the loop restarts on an empty frame
+      tl.to("#scene", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
